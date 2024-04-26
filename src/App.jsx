@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import useFetchData from './hooks/useFetchData.js';
 
 import Header from './components/Header.jsx';
@@ -10,8 +10,6 @@ import Products from './components/Products.jsx'
 
 const App = () => {
     //const apiUrl = import.meta.env.VITE_APP_API_URL
-
-    // ¿useContext + useRef para dark mode?
 
     return (
         <Router>
