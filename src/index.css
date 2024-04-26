@@ -58,9 +58,7 @@ form {
 }
 
 input {
-  width: 200px;
-  padding: 7px;
-  margin-right: 10px;
+  padding: 6px;
   border: 1px solid #98b4cb;
   border-radius: 5px;
   font-size: 14px;
@@ -71,7 +69,7 @@ input:focus {
   outline: #6ba9db solid 1.5px;
 }
 
-button {
+button, .btn {
   border-radius: 6px;
   border: .5px solid transparent;
   padding: 7px 15px;
