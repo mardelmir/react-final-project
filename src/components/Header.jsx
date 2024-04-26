@@ -16,7 +16,9 @@ function Header() {
                     <Link to='/login'>Sign In</Link>
                     <Link to='/register'>Sign Up</Link>
                     <Link to='/logout'>Log Out</Link>
-                    <a href=''><img class='cart' src='src/assets/icons/cart.png' /></a>
+
+                    {/* No están ni la imagen ni el componente creados 
+                    <Link to='/cart'><img class='cart' src='src/assets/icons/cart.png' /></Link> */}
                 </div>
             </nav>
         </header>

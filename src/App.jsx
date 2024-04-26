@@ -4,14 +4,14 @@ import useFetchData from './hooks/useFetchData.js';
 
 import Header from './components/Header.jsx';
 import Home from './components/Home.jsx'
-import FormLogin from './components/FormLogin.jsx'
+import FormLogin from './components/FormLogin.jsx';
 import FormRegister from './components/FormRegister.jsx'
 import Products from './components/Products.jsx'
 
-
-
 const App = () => {
     //const apiUrl = import.meta.env.VITE_APP_API_URL
+
+    // ¿useContext + useRef para dark mode?
 
     return (
         <Router>
