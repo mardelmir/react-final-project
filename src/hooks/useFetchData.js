@@ -9,7 +9,7 @@ const useFetchData = (apiUrl) => {
         const fetchData = async () => {
             try {
                 const response = await fetch(apiUrl)
-                if (!response.ok) { throw new Error('Error al acceder a la información') }
+                if (!response.ok) { throw new Error('Error: could not access endpoint') }
                 const resData = await response.json()
                 setData(resData.result)
                 setLoading(false)

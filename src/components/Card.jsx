@@ -1,33 +1,15 @@
-import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import useFetchData from '../hooks/useFetchData'
 
 function Card({ productID }) {
-    const [product, setProduct] = useState([])
-    const [loading, setLoading] = useState(false)
-
     const productId = productID || useParams().id
 
     const urlApi = `http://localhost:8080/api/v1/products/${productId}`;
+    const { data: product, loading } = useFetchData(urlApi)
 
-    useEffect(() => {
-        async function fetchProducts() {
-            try {
-                const res = await fetch(urlApi)
-                const data = await res.json()
-                setProduct(data.result)
-                setLoading(true)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        fetchProducts()
-    }, [])
-
-    
     return (
         <>
-            {loading === false
+            {loading
                 ? (<h3>Loading...</h3>)
                 : (
                     <div key={product._id}>

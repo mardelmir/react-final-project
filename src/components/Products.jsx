@@ -1,12 +1,29 @@
-import { useEffect, useState } from 'react'
-import Card from './Card.jsx'
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import useFetchData from '../hooks/useFetchData.js';
 
 function Products() {
-    //poner la url en .env --> ????
+    //const [products, setProducts] = useState([])
+    const [filter, setFilter] = useState({ gender: [] })
+
     const urlApi = 'http://localhost:8080/api/v1/products';
     const { data: products } = useFetchData(urlApi)
+
+    // useEffect(() => {
+    //     console.log("hola")
+    //     setProducts(data)
+    // }, [])
+
+
+    const onChangeHandler = (e) => {
+        if (e.target.checked) {
+            setFilter({ ...filter, gender: [e.target.name] })
+            console.log(e.target.parentElement.id)
+            
+        }
+    }
+    
+    // useEffect(,[filter])
 
     return (
         <>
@@ -21,25 +38,21 @@ function Products() {
                     </div>
                 ))}
             </div>
+
+            <label>Man</label>
+            <input
+                type="checkbox"
+                id="man"
+                name="man"
+                onChange={onChangeHandler} />
+            <label>Woman</label>
+            <input
+                type="checkbox"
+                id="woman"
+                name="woman"
+                onChange={onChangeHandler} />
         </>
     )
 }
 
 export default Products
-
-
-//const [products, setProducts] = useState([])
-
-// useEffect(() => {
-//     async function fetchProducts() {
-//         try {
-//             const res = await fetch(urlApi)
-//             const data = await res.json()
-//             setProducts(data.result)
-//             // console.log(data.products)
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     }
-//     fetchProducts()
-// }, [])
