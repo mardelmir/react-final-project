@@ -1,6 +1,5 @@
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import useFetchData from './hooks/useFetchData.js';
 
 import Header from './components/Header.jsx';
 import Home from './components/Home.jsx';
@@ -22,7 +21,7 @@ const App = () => {
                     <Route path='/products' element={<Products />} />
                     <Route path='/login' element={<FormLogin />} />
                     <Route path='/register' element={<FormRegister />} />
-                    <Route path='/products/:id' element={<Card/>} />
+                    <Route path='/products/:id' element={<Card />} />
                 </Routes>
             </main>
             <Footer />

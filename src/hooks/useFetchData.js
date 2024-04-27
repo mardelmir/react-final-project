@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 const useFetchData = (apiUrl) => {
-    const [data, setData] = useState(null)
+    const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
@@ -11,7 +11,7 @@ const useFetchData = (apiUrl) => {
                 const response = await fetch(apiUrl)
                 if (!response.ok) { throw new Error('Error al acceder a la información') }
                 const resData = await response.json()
-                setData(resData)
+                setData(resData.result)
                 setLoading(false)
             } catch (error) {
                 console.log(error)
@@ -20,7 +20,7 @@ const useFetchData = (apiUrl) => {
             }
         }
         fetchData()
-    }, [data])
+    }, [apiUrl])
 
     return { data, loading, error }
 }

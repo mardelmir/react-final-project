@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from 'react';
 
 const CurrentUserContext = createContext()
 
-export const UserProvider = ({ children }) => {
+export const CurrentUserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null)
 
     return (
