@@ -4,6 +4,7 @@ function Header() {
     return (
         <header className='header'>
             <nav className='menu'>
+                <div>soy el LOGO</div>
                 <Link to='/'>Home</Link>
                 <Link to='/products'>Products</Link>
                 <Link to='/'>Mens</Link>
@@ -13,7 +14,9 @@ function Header() {
             <input className='searchBar' type='text' />
             <div className='menu'>
                 <Link to='/login'>Sign In</Link>
+                <p>|</p>
                 <Link to='/register'>Sign Up</Link>
+                <p>|</p>
                 <Link to='/logout'>Log Out</Link>
 
                 {/* No están ni la imagen ni el componente creados 

@@ -29,6 +29,8 @@ body {
   display: flex;
   justify-content: space-around;
   gap: 20px;
+  background-color: #f8f8f8; 
+  align-items: center;
 }
 
 h1 {
@@ -91,4 +93,8 @@ button:hover {
     color: #213547;
     background-color: #ffffff;
   }
+}
+
+main {
+  padding: 50px;
 }
