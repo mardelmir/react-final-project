@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import useFetchData from '../hooks/useFetchData.js';
 
+const sizesList = [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+
 function Products() {
     //const [products, setProducts] = useState([])
     const [filter, setFilter] = useState({ gender: [], size: [], priceMin: 0, priceMax: 0, use: [], isFiltered: false })
@@ -16,17 +18,20 @@ function Products() {
 
 
     const onChangeHandler = (e) => {
+        const category = e.target.parentElement.classList[1]
         if (e.target.checked) {
-            let updatedFilterCategory = filter[e.target.parentElement.classList[1]].push(e.target.name)
-            console.log(updatedFilterCategory)
-            console.log(e.target.name)
-            console.log(filter[e.target.parentElement.classList[1]])
-            setFilter({ ...filter, gender: updatedFilterCategory, isFiltered: true })
-            
+            setFilter({ ...filter, [category]: [...filter[category], e.target.name], isFiltered: true })
+        } else {
+            const newList = [...filter[category]].filter(item => item !== e.target.name)
+            setFilter({ ...filter, [category]: newList})
         }
+        console.log(filter)
     }
-    
-    // useEffect(,[filter])
+
+    const onChangeHandlerPrice = (e) => {
+        console.log(e.target.value)
+    }
+    useEffect( (),[filter])
 
     return (
         <>
@@ -41,22 +46,59 @@ function Products() {
                     </div>
                 ))}
             </div>
-            <div>{filter.gender[0]}</div>
-            <fieldset className="filter gender">
-                <legend>Gender</legend>
-                <label htmlFor="man">Man</label>
-                <input
-                    type="checkbox"
-                    id="man"
-                    name="man"
-                    onChange={onChangeHandler} />
-                <label htmlFor="woman">Woman</label>
-                <input
-                    type="checkbox"
-                    id="woman"
-                    name="woman"
-                    onChange={onChangeHandler} />
-            </fieldset>
+
+            <div className='filter'>
+                <fieldset className="filter gender">
+                    <legend>Gender</legend>
+                    <label htmlFor="man">Man</label>
+                    <input
+                        type="checkbox"
+                        id="man"
+                        name="man"
+                        onChange={onChangeHandler} />
+                    <label htmlFor="woman">Woman</label>
+                    <input
+                        type="checkbox"
+                        id="woman"
+                        name="woman"
+                        onChange={onChangeHandler} />
+                </fieldset>
+
+                <fieldset className="filter size">
+                    <legend>Size</legend>
+                    {sizesList.map(size => (
+                        <>
+                            <label htmlFor={size}>{size}</label>
+                            <input
+                                type="checkbox"
+                                id={size}
+                                name={size}
+                                onChange={onChangeHandler} />
+                        </>
+                    ))}
+                </fieldset>
+
+                <fieldset className="filter use">
+                    <legend>Use</legend>
+                    <label htmlFor="lifestyle">Lifestyle</label>
+                    <input
+                        type="checkbox"
+                        id="lifestyle"
+                        name="lifestyle"
+                        onChange={onChangeHandler} />
+                    <label htmlFor="performance">Performance</label>
+                    <input
+                        type="checkbox"
+                        id="performance"
+                        name="performance"
+                        onChange={onChangeHandler} />
+                </fieldset>
+                <fieldset>
+                    <legend>Price</legend>
+                    <input type="range" id="price" name="price" min="40" max="250" step="10" onChange={onChangeHandlerPrice}/>
+                </fieldset>
+            </div>
+
         </>
     )
 }

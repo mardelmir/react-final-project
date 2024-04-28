@@ -12,7 +12,7 @@ function Card({ productID }) {
             {loading
                 ? (<h3>Loading...</h3>)
                 : (
-                    <div key={product._id}>
+                    <div key={product._id} className='card'>
                         <h2>{product.name}</h2>
                         <img src={product.img} alt={product.name} />
                         <p>Gender: {product.category.gender}</p>
