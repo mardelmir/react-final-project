@@ -4,7 +4,7 @@ import useFetchData from '../hooks/useFetchData.js';
 
 function Products() {
     //const [products, setProducts] = useState([])
-    const [filter, setFilter] = useState({ gender: [] })
+    const [filter, setFilter] = useState({ gender: [], size: [], priceMin: 0, priceMax: 0, use: [], isFiltered: false })
 
     const urlApi = 'http://localhost:8080/api/v1/products';
     const { data: products } = useFetchData(urlApi)
@@ -17,8 +17,11 @@ function Products() {
 
     const onChangeHandler = (e) => {
         if (e.target.checked) {
-            setFilter({ ...filter, gender: [e.target.name] })
-            console.log(e.target.parentElement.id)
+            let updatedFilterCategory = filter[e.target.parentElement.classList[1]].push(e.target.name)
+            console.log(updatedFilterCategory)
+            console.log(e.target.name)
+            console.log(filter[e.target.parentElement.classList[1]])
+            setFilter({ ...filter, gender: updatedFilterCategory, isFiltered: true })
             
         }
     }
@@ -38,19 +41,22 @@ function Products() {
                     </div>
                 ))}
             </div>
-
-            <label>Man</label>
-            <input
-                type="checkbox"
-                id="man"
-                name="man"
-                onChange={onChangeHandler} />
-            <label>Woman</label>
-            <input
-                type="checkbox"
-                id="woman"
-                name="woman"
-                onChange={onChangeHandler} />
+            <div>{filter.gender[0]}</div>
+            <fieldset className="filter gender">
+                <legend>Gender</legend>
+                <label htmlFor="man">Man</label>
+                <input
+                    type="checkbox"
+                    id="man"
+                    name="man"
+                    onChange={onChangeHandler} />
+                <label htmlFor="woman">Woman</label>
+                <input
+                    type="checkbox"
+                    id="woman"
+                    name="woman"
+                    onChange={onChangeHandler} />
+            </fieldset>
         </>
     )
 }
