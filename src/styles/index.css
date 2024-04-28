@@ -111,12 +111,13 @@ button:hover {
 }
 
 /* carrusel de imágenes */
-/*
+
 .carrusel-container {
   width: auto;
   height: 500px;
   margin: 0 auto;
   background-color: #98b4cb;
+  list-style: none;
 }
 
 .slider-container {
@@ -127,6 +128,51 @@ button:hover {
 .container-images {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow:hidden;
+
 }
-*/
+
+/*Arrows*/
+.leftArrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 32px;
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.rightArrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 32px;
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* dots container */
+.dots-container {
+  display: flex;
+  justify-content: center;
+}
+
+.dot-container-item {
+  margin: 8px 3px;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+}
+
+div.active {
+  background: #ccc;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
