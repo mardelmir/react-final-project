@@ -1,3 +1,4 @@
+import '../styles/Form.css'
 import { useState } from "react"
 import { Link } from 'react-router-dom';
 
@@ -24,11 +25,15 @@ function FormLogin() {
 
     return (
         <form className='form' onSubmit={handleSubmit}>
-            <label htmlFor='emailId'>Email:</label>
-            <input type='email' id='emailId' name='email' required />
+            <div className='formItem'>
+                <label htmlFor='emailId'>Email:</label>
+                <input type='email' id='emailId' name='email' required />
+            </div>
 
-            <label htmlFor='passId'>Contraseña:</label>
-            <input type='password' id='passId' name='password' required />
+            <div className='formItem'>
+                <label htmlFor='passId'>Contraseña:</label>
+                <input type='password' id='passId' name='password' required />
+            </div>
 
             <div className='warning'></div>
             <div className='btn-container'>

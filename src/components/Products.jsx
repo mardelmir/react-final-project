@@ -6,16 +6,12 @@ const sizesList = [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
 
 function Products() {
     //const [products, setProducts] = useState([])
-    const [filter, setFilter] = useState({ gender: [], size: [], priceMin: 0, priceMax: 0, use: [], isFiltered: false })
-
     const urlApi = 'http://localhost:8080/api/v1/products';
+    const [filter, setFilter] = useState({ gender: [], size: [], minPrice: 0, maxPrice: 0, use: [], isFiltered: false })
+    const [displayedProducts, setDisplayedProducts] = useState([])
+
+
     const { data: products } = useFetchData(urlApi)
-
-    // useEffect(() => {
-    //     console.log("hola")
-    //     setProducts(data)
-    // }, [])
-
 
     const onChangeHandler = (e) => {
         const category = e.target.parentElement.classList[1]
@@ -23,21 +19,46 @@ function Products() {
             setFilter({ ...filter, [category]: [...filter[category], e.target.name], isFiltered: true })
         } else {
             const newList = [...filter[category]].filter(item => item !== e.target.name)
-            setFilter({ ...filter, [category]: newList})
+            setFilter({ ...filter, [category]: newList })
         }
         console.log(filter)
     }
 
     const onChangeHandlerPrice = (e) => {
-        console.log(e.target.value)
+        setFilter({ ...filter, [e.target.name]: e.target.value, isFiltered: true })
     }
-    useEffect( (),[filter])
+
+    useEffect(() => {
+        let filteredList
+        if (filter.isFiltered) {
+            filteredList = products.filter(product => {
+                if (
+                    filter.gender.includes(product.category.gender) &&
+                    filter.use.includes(product.category.use) &&
+                    (product.price >= filter.minPrice && product.price <= filter.maxPrice)
+                ) {
+                    filter.size.forEach(size => {
+                        if(Object.keys(product.size).includes(size)) {
+                            return true
+                        }
+                    })
+                } else {
+                    return false
+            
+                }
+            })
+            setDisplayedProducts(filteredList)
+        } else {
+            setDisplayedProducts(products)
+        }
+        
+    }, [filter])
 
     return (
         <>
             <h1>Our Products</h1>
             <div className='container'>
-                {products.map(product => (
+                {displayedProducts.map(product => (
                     <div key={product._id}>
                         <h2>{product.name}</h2>
                         <p>{product.img}</p>
@@ -93,9 +114,22 @@ function Products() {
                         name="performance"
                         onChange={onChangeHandler} />
                 </fieldset>
-                <fieldset>
+                <fieldset className = "filter price">
                     <legend>Price</legend>
-                    <input type="range" id="price" name="price" min="40" max="250" step="10" onChange={onChangeHandlerPrice}/>
+                    <input
+                        type="number"
+                        id="minPrice"
+                        name="minPrice"
+                        placeholder="$ Min."
+                        onChange={onChangeHandlerPrice}
+                    />
+                    <input
+                        type="number"
+                        id="maxPrice"
+                        name="maxPrice"
+                        placeholder="$ Max."
+                        onChange={onChangeHandlerPrice}
+                    />
                 </fieldset>
             </div>
 
