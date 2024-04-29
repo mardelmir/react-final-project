@@ -65,6 +65,9 @@ function Home() {
                     }
                 </div>
             </section>
+            <div className='h1-use'>
+                <h1>LIFESTYLE | HIKING | OFF ROAD | HARD TERRAIN </h1>
+            </div>
             <section className='banners'>
                 <div className='banner-1'>
                     <div >
@@ -85,8 +88,9 @@ function Home() {
                     </div>
                 </div>
             </section>
-            <section className="carrusel-brands">
-                <div>
+            <section className="carrusel-brands-section">
+                <h1>OUR BRANDS</h1>
+                <div className='carrusel-brands-container'>
                     <h2>soy el carrusel de marcas</h2>
                 </div>
             </section>
