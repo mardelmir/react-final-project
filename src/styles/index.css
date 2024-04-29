@@ -121,7 +121,6 @@ button:hover {
   box-sizing: border-box;
   width: 95vw;
   height: 70vh;
-  min-height: 500px;
   margin: 0 auto;
   background-color: #98b4cb;
 }
@@ -146,15 +145,20 @@ button:hover {
 .image {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+
+  /* object-fit: contain;
+  backdrop-filter: blur(50px); */
+}
+
+/* .background-image {
+  width: 100%;
+  height: 100%;
   aspect-ratio: auto;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  /* min-width: 100%;
-  min-height: 100%;
-  object-fit: cover; */
-}
+} */
 
 /*Arrows*/
 .rightArrow,

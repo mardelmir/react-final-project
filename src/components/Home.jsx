@@ -9,11 +9,15 @@ function Home() {
         const listNode = listRef.current;
         const imgNode = listNode.querySelectorAll('li>img')[currentIndex];
         if (imgNode) {
-            imgNode.scrollIntoView({
-                behavior: 'smooth'
-            });
+            const scrollOptions = {
+                top: imgNode.offsetTop - (listNode.offsetHeight - imgNode.offsetHeight) / 2,
+                behavior: 'smooth' // Agregar comportamiento suave
+            };
+            listNode.scrollTo(scrollOptions);
+            // imgNode.scrollIntoView({
+            //     behavior: 'smooth'
+            // });
         }
-
     }, [currentIndex])
 
     const scrollToImage = (direction) => {
@@ -46,8 +50,9 @@ function Home() {
                                 className='image'
                                 style={{
                                     backgroundImage: `url(${item.imgUrl})`
-                                }}>
-                                {/* <img src={item.imgUrl} alt='Carrusel image' /> */}
+                                }}
+                                >
+                                <img src={item.imgUrl} alt='Carrusel image' className='image'/>
                                 {/* <img src={item.imgUrl} width={1800} height={500} alt=' /> */}
                             </li>
                         )}
