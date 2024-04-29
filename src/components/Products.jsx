@@ -12,7 +12,7 @@ function Products() {
     const { data: products, loading: isFetched } = useFetchData(urlApi)
 
     useEffect(() => {
-        console.log(filter.isFiltered)
+        console.log(filter)
         if (filter.isFiltered) {
             const filteredList = products.filter(product => {
                 if (
@@ -25,6 +25,8 @@ function Products() {
                             return true
                         }
                     })
+
+                    // filter.size.filter(size => )
                 } else {
                     return false
                 }
