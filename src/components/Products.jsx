@@ -5,13 +5,38 @@ import useFetchData from '../hooks/useFetchData.js';
 const sizesList = [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
 
 function Products() {
-    //const [products, setProducts] = useState([])
     const urlApi = 'http://localhost:8080/api/v1/products';
     const [filter, setFilter] = useState({ gender: [], size: [], minPrice: 0, maxPrice: 0, use: [], isFiltered: false })
     const [displayedProducts, setDisplayedProducts] = useState([])
 
+    const { data: products, loading: isFetched } = useFetchData(urlApi)
 
-    const { data: products } = useFetchData(urlApi)
+    useEffect(() => {
+        console.log(filter.isFiltered)
+        if (filter.isFiltered) {
+            const filteredList = products.filter(product => {
+                if (
+                    filter.gender.includes(product.category.gender) &&
+                    filter.use.includes(product.category.use) &&
+                    (product.price >= filter.minPrice && product.price <= filter.maxPrice)
+                ) {
+                    filter.size.forEach(size => {
+                        if (Object.keys(product.size).includes(size)) {
+                            return true
+                        }
+                    })
+                } else {
+                    return false
+                }
+            })
+            setDisplayedProducts(filteredList)
+        } else {
+            console.log("estoy en el else")
+            setDisplayedProducts(products)
+        }
+
+    }, [filter, isFetched])
+
 
     const onChangeHandler = (e) => {
         const category = e.target.parentElement.classList[1]
@@ -28,44 +53,20 @@ function Products() {
         setFilter({ ...filter, [e.target.name]: e.target.value, isFiltered: true })
     }
 
-    useEffect(() => {
-        let filteredList
-        if (filter.isFiltered) {
-            filteredList = products.filter(product => {
-                if (
-                    filter.gender.includes(product.category.gender) &&
-                    filter.use.includes(product.category.use) &&
-                    (product.price >= filter.minPrice && product.price <= filter.maxPrice)
-                ) {
-                    filter.size.forEach(size => {
-                        if(Object.keys(product.size).includes(size)) {
-                            return true
-                        }
-                    })
-                } else {
-                    return false
-            
-                }
-            })
-            setDisplayedProducts(filteredList)
-        } else {
-            setDisplayedProducts(products)
-        }
-        
-    }, [filter])
-
     return (
         <>
             <h1>Our Products</h1>
             <div className='products-container'>
-                {displayedProducts.map(product => (
-                    <div key={product._id}>
-                        <h2>{product.name}</h2>
-                        <p>{product.img}</p>
-                        <p>Price: {product.price}</p>
-                        <Link to={`/products/${product._id}`}><button>Detail</button></Link>
-                    </div>
-                ))}
+                {displayedProducts.length === 0
+                    ? <h2>Loading...</h2>
+                    : displayedProducts.map(product => (
+                        <div key={product._id}>
+                            <h2>{product.name}</h2>
+                            <img src={product.img} alt={product.name} />
+                            <p>Price: {product.price}</p>
+                            <Link to={`/products/${product._id}`}><button>Detail</button></Link>
+                        </div>
+                    ))}
             </div>
 
             <div className='filter'>
@@ -114,7 +115,7 @@ function Products() {
                         name="performance"
                         onChange={onChangeHandler} />
                 </fieldset>
-                <fieldset className = "filter price">
+                <fieldset className="filter price">
                     <legend>Price</legend>
                     <input
                         type="number"

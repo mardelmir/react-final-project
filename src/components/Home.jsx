@@ -59,7 +59,7 @@ function Home() {
                     {carruselData.map((_, idx) => (
                         <div key={idx} className={`dot-container-item ${idx === currentIndex ? 'active' : ''}`}
                             onClick={() => goToSlide(idx)}>
-                            &#9865;
+                            &#11044;
                         </div>
                     ))
                     }
@@ -67,10 +67,22 @@ function Home() {
             </section>
             <section className='banners'>
                 <div className='banner-1'>
-                    <h2>Soy el banner 1</h2>
+                    <div >
+                        <h2>POPULAR PRODUCTS</h2>
+                        <p>Our most valued footwear</p>
+                        <div className='shop-now'>
+                            <p>shop now!</p>
+                        </div>
+                    </div>
                 </div>
                 <div className='banner-2'>
-                    <h2>Soy el banner 2</h2>
+                    <div>
+                        <h2>ENVIRONMENT</h2>
+                        <h3>We care our planet</h3>
+                        <div className='learn-more'>
+                            <p>Learn more!</p>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section className="carrusel-brands">

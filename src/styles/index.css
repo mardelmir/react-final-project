@@ -38,7 +38,7 @@ main {
   box-sizing: border-box;
   min-height: 100%;
   min-width: 100%;
-  
+
 }
 
 h1 {
@@ -185,14 +185,35 @@ button:hover {
 }
 
 .active {
-  width: 15px;
-  height: 15px;
-  background: #ccc;
-  border-radius: 50%;
+  color: #6ba9db;
 }
 
+
+/* home banners */
 .banners {
-display: flex;
-justify-content: center;
-gap: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding-top: 20px;
+}
+
+.banners, h2 {
+  color: white;
+  font-weight: 700;
+}
+
+.banner-1, .banner-2 {
+  width: 50%;
+  height: 400px;
+  background-color: lightslategray;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-left: 25px;
+}
+
+.show-now, .learn-more {
+  border: white;
+  width: fit-content;
+  height: fit-content;
 }

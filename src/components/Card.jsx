@@ -7,6 +7,7 @@ function Card() {
     const urlApi = `http://localhost:8080/api/v1/products/${productId}`;
     const { data: product, loading } = useFetchData(urlApi)
 
+
     return (
         <>
             {loading
@@ -17,7 +18,7 @@ function Card() {
                         <img src={product.img} alt={product.name} />
                         <p>Gender: {product.category.gender}</p>
                         <p>Use: {product.category.use}</p>
-                        <p>Size: {product.size}</p>
+                        {/* <p>Size: {product.size}</p> */}
                         <p>Price: {product.price}€</p>
                     </div>
                 )
