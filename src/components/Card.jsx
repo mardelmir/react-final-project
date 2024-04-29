@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom'
 import useFetchData from '../hooks/useFetchData'
 
-function Card({ productID }) {
-    const productId = productID || useParams().id
+function Card() {
+    const productId = useParams().id
 
     const urlApi = `http://localhost:8080/api/v1/products/${productId}`;
     const { data: product, loading } = useFetchData(urlApi)
