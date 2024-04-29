@@ -17,8 +17,6 @@ function Header() {
                 <div>soy el LOGO</div>
                 <Link to='/'>Home</Link>
                 <Link to='/products'>Products</Link>
-                <Link to='/'>Mens</Link>
-                <Link to='/'>Womens</Link>
                 <Link to='/about'>About Us</Link>
             </nav>
             <input className='searchBar' type='text' />

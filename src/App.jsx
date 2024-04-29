@@ -23,7 +23,6 @@ const App = () => {
                     <Route path='/register' element={<FormRegister />} />
                     <Route path='/products/:id' element={<Card />} />
                 </Routes>
-                
             </main>
             <Footer />
         </Router>
