@@ -36,15 +36,18 @@ function Home() {
 
     return (
         <>
-            <h1>SOY UN CARRUSEL</h1>
             <section className='carrusel-container'>
                 <div className='slider-container'>
                     <div className='leftArrow' onClick={() => scrollToImage('prev')}>&#10092;</div>
                     <div className='rightArrow' onClick={() => scrollToImage('next')}>&#10093;</div>
                     <ul className='container-images' ref={listRef} >
                         {carruselData.map((item) =>
-                            <li key={item.id} className='image'>
-                                <img src={item.imgUrl} alt='Carrusel image' />
+                            <li key={item.id}
+                                className='image'
+                                style={{
+                                    backgroundImage: `url(${item.imgUrl})`
+                                }}>
+                                {/* <img src={item.imgUrl} alt='Carrusel image' /> */}
                                 {/* <img src={item.imgUrl} width={1800} height={500} alt=' /> */}
                             </li>
                         )}

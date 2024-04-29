@@ -57,7 +57,7 @@ function Products() {
     return (
         <>
             <h1>Our Products</h1>
-            <div className='container'>
+            <div className='products-container'>
                 {displayedProducts.map(product => (
                     <div key={product._id}>
                         <h2>{product.name}</h2>
