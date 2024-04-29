@@ -11,31 +11,48 @@ function Products() {
 
     const { data: products, loading: isFetched } = useFetchData(urlApi)
 
-    useEffect(() => {
-        console.log(filter)
-        if (filter.isFiltered) {
-            const filteredList = products.filter(product => {
-                if (
-                    filter.gender.includes(product.category.gender) &&
-                    filter.use.includes(product.category.use) &&
-                    (product.price >= filter.minPrice && product.price <= filter.maxPrice)
-                ) {
-                    filter.size.forEach(size => {
-                        if (Object.keys(product.size).includes(size)) {
-                            return true
-                        }
-                    })
-
-                    // filter.size.filter(size => )
-                } else {
-                    return false
-                }
-            })
-            setDisplayedProducts(filteredList)
-        } else {
-            console.log("estoy en el else")
-            setDisplayedProducts(products)
+    const filterProducts = () => {
+        let filteredList = [...products];
+        if (filter.gender.length !== 0) {
+            filteredList = filteredList.filter()
         }
+        if (filter.use.length !==0) {
+            filteredList = filteredList.filter()
+        }
+        if (filter.size.length !==0 && filter.size.length !== 14) {
+            filteredList = filteredList
+        }
+        setDisplayedProducts(filteredList)
+
+    }
+
+    useEffect(() => {
+        filterProducts()
+
+        // console.log(filter)
+        // if (filter.isFiltered) {
+        //     const filteredList = products.filter(product => {
+        //         if (
+        //             filter.gender.includes(product.category.gender) &&
+        //             filter.use.includes(product.category.use) &&
+        //             (product.price >= filter.minPrice && product.price <= filter.maxPrice)
+        //         ) {
+        //             filter.size.forEach(size => {
+        //                 if (Object.keys(product.size).includes(size)) {
+        //                     return true
+        //                 }
+        //             })
+
+        //             // filter.size.filter(size => Object.keys(product.size).includes(size) ? size)
+        //         } else {
+        //             return false
+        //         }
+        //     })
+        //     setDisplayedProducts(filteredList)
+        // } else {
+        //     console.log("estoy en el else")
+        //     setDisplayedProducts(products)
+        // }
 
     }, [filter, isFetched])
 
