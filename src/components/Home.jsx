@@ -11,7 +11,7 @@ function Home() {
         if (imgNode) {
             const scrollOptions = {
                 top: imgNode.offsetTop - (listNode.offsetHeight - imgNode.offsetHeight) / 2,
-                behavior: 'smooth' // Agregar comportamiento suave
+                behavior: 'smooth' 
             };
             listNode.scrollTo(scrollOptions);
             // imgNode.scrollIntoView({
@@ -48,9 +48,6 @@ function Home() {
                         {carruselData.map((item) =>
                             <li key={item.id}
                                 className='image'
-                                style={{
-                                    backgroundImage: `url(${item.imgUrl})`
-                                }}
                                 >
                                 <img src={item.imgUrl} alt='Carrusel image' className='image'/>
                                 {/* <img src={item.imgUrl} width={1800} height={500} alt=' /> */}
@@ -68,7 +65,7 @@ function Home() {
                     }
                 </div>
             </section>
-            <section>
+            <section className='banners'>
                 <div className='banner-1'>
                     <h2>Soy el banner 1</h2>
                 </div>
