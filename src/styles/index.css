@@ -111,25 +111,37 @@ button:hover {
 }
 
 /* carrusel de imágenes */
-
 .carrusel-container {
+  box-sizing: border-box;
   width: auto;
   height: 500px;
   margin: 0 auto;
   background-color: #98b4cb;
-  list-style: none;
 }
 
 .slider-container {
+  box-sizing: border-box;
   position: relative;
-  height: 100%;
+  width: 100%;
+  height: auto;
+}
+
+/* .images img, */
+.image img,
+.image {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
 }
 
 .container-images {
+  box-sizing: border-box;
   width: 100%;
-  height: 100%;
-  overflow:hidden;
-
+  height: auto;
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  overflow: hidden;
 }
 
 /*Arrows*/
@@ -158,21 +170,22 @@ button:hover {
 }
 
 /* dots container */
-.dots-container {
+.dots-container,
+.dot-container-item {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .dot-container-item {
   margin: 8px 3px;
-  cursor: pointer;
   font-size: 12px;
-  text-align: center;
+  cursor: pointer;
 }
 
 div.active {
-  background: #ccc;
   width: 15px;
   height: 15px;
+  background: #ccc;
   border-radius: 50%;
 }
