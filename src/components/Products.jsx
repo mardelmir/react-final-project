@@ -1,15 +1,20 @@
+import '../styles/Products.css'
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import useFetchData from '../hooks/useFetchData.js';
 
 const sizesList = [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
 
 function Products() {
-    const urlApi = 'http://localhost:8080/api/v1/products';
     const [filter, setFilter] = useState({ gender: [], size: [], minPrice: 0, maxPrice: 0, use: [], isFiltered: false })
     const [displayedProducts, setDisplayedProducts] = useState([])
-
+    
+    const classFilterRef = useRef()
+    
+    const urlApi = 'http://localhost:8080/api/v1/products';
     const { data: products, loading: isFetched } = useFetchData(urlApi)
+
+
 
     const filterProducts = () => {
         let filteredList = [...products];
@@ -23,7 +28,6 @@ function Products() {
             filteredList = filteredList
         }
         setDisplayedProducts(filteredList)
-
     }
 
     useEffect(() => {
@@ -79,10 +83,10 @@ function Products() {
                 {displayedProducts.length === 0
                     ? <h2>Loading...</h2>
                     : displayedProducts.map(product => (
-                        <div key={product._id}>
-                            <h2>{product.name}</h2>
+                        <div key={product._id} className='product'>
+                            <h3>{product.name}</h3>
                             <img src={product.img} alt={product.name} />
-                            <p>Price: {product.price}</p>
+                            <p><span>Price</span>: {product.price}</p>
                             <Link to={`/products/${product._id}`}><button>Detail</button></Link>
                         </div>
                     ))}
@@ -108,14 +112,14 @@ function Products() {
                 <fieldset className="filter size">
                     <legend>Size</legend>
                     {sizesList.map(size => (
-                        <>
+                        <div key={size}>
                             <label htmlFor={size}>{size}</label>
                             <input
                                 type="checkbox"
                                 id={size}
                                 name={size}
                                 onChange={onChangeHandler} />
-                        </>
+                        </div>
                     ))}
                 </fieldset>
 

@@ -1,16 +1,14 @@
-import '../styles/footer.css'
+import '../styles/Footer.css'
 
-function Footer () {
+function Footer() {
     return (
-        <>
-        <div className="div-footer">
+        <footer className="div-footer">
             <a href="">Terms of use</a>
             <p>|</p>
             <a href="">Privacy policy</a>
             <p>|</p>
             <a href="">Cookie settings</a>
-        </div>
-        </>
+        </footer>
     )
 }
 

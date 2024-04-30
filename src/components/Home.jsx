@@ -11,12 +11,9 @@ function Home() {
         if (imgNode) {
             const scrollOptions = {
                 top: imgNode.offsetTop - (listNode.offsetHeight - imgNode.offsetHeight) / 2,
-                behavior: 'smooth' 
+                behavior: 'smooth'
             };
             listNode.scrollTo(scrollOptions);
-            // imgNode.scrollIntoView({
-            //     behavior: 'smooth'
-            // });
         }
     }, [currentIndex])
 
@@ -34,9 +31,7 @@ function Home() {
         }
     }
 
-    const goToSlide = (slideIndex) => {
-        setCurrentIndex(slideIndex);
-    }
+    const goToSlide = (slideIndex) => setCurrentIndex(slideIndex)
 
     return (
         <>
@@ -45,18 +40,15 @@ function Home() {
                     <div className='leftArrow' onClick={() => scrollToImage('prev')}>&#10092;</div>
                     <div className='rightArrow' onClick={() => scrollToImage('next')}>&#10093;</div>
                     <ul className='container-images' ref={listRef} >
-                        {carruselData.map((item) =>
-                            <li key={item.id}
-                                className='image'
-                                >
-                                <img src={item.imgUrl} alt='Carrusel image' className='image'/>
-                                {/* <img src={item.imgUrl} width={1800} height={500} alt=' /> */}
+                        {carruselData.map(item =>
+                            <li key={item.id} className='image'>
+                                <img src={item.imgUrl} alt='Carrusel image' className='image' />
                             </li>
                         )}
                     </ul>
                 </div>
                 <div className='dots-container'>
-                    {carruselData.map((_, idx) => (
+                    {carruselData.map((e, idx) => (
                         <div key={idx} className={`dot-container-item ${idx === currentIndex ? 'active' : ''}`}
                             onClick={() => goToSlide(idx)}>
                             &#11044;
@@ -66,7 +58,7 @@ function Home() {
                 </div>
             </section>
             <div className='h1-use'>
-                <h1>LIFESTYLE | HIKING | OFF ROAD | HARD TERRAIN </h1>
+                <h2>LIFESTYLE | HIKING | OFF ROAD | HARD TERRAIN </h2>
             </div>
             <section className='banners'>
                 <div className='banner-1'>
@@ -89,7 +81,7 @@ function Home() {
                 </div>
             </section>
             <section className="carrusel-brands-section">
-                <h1>OUR BRANDS</h1>
+                <h2>OUR BRANDS</h2>
                 <div className='carrusel-brands-container'>
                     <h2>soy el carrusel de marcas</h2>
                 </div>
