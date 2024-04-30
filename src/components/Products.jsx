@@ -1,4 +1,4 @@
-import '../styles/Products.css'
+import '../styles/ProductsAndCard.css'
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import useFetchData from '../hooks/useFetchData.js';
@@ -86,7 +86,7 @@ function Products() {
                         <div key={product._id} className='product'>
                             <h3>{product.name}</h3>
                             <img src={product.img} alt={product.name} />
-                            <p><span>Price</span>: {product.price}</p>
+                            <p><span>Price</span>: {product.price}€</p>
                             <Link to={`/products/${product._id}`}><button>Detail</button></Link>
                         </div>
                     ))}

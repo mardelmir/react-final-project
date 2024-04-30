@@ -1,4 +1,5 @@
-import { useParams } from 'react-router-dom'
+import '../styles/ProductsAndCard.css'
+import { Link, useParams } from 'react-router-dom'
 import useFetchData from '../hooks/useFetchData'
 
 function Card() {
@@ -20,6 +21,7 @@ function Card() {
                         <p>Use: {product.category.use}</p>
                         {/* <p>Size: {product.size}</p> */}
                         <p>Price: {product.price}€</p>
+                        <Link to='/products'><button>Go back</button></Link>
                     </div>
                 )
             }
