@@ -1,79 +1,78 @@
 import '../styles/ProductsAndCard.css'
 import { Link } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import useFetchData from '../hooks/useFetchData.js';
 
 const sizesList = [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
 
 function Products() {
-    const [filter, setFilter] = useState({ gender: [], size: [], minPrice: 0, maxPrice: 0, use: [], isFiltered: false })
+    const [filter, setFilter] = useState({ gender: [], size: [], minPrice: 0, maxPrice: 0, use: [] })
     const [displayedProducts, setDisplayedProducts] = useState([])
-    
-    const classFilterRef = useRef()
-    
+
     const urlApi = 'http://localhost:8080/api/v1/products';
     const { data: products, loading: isFetched } = useFetchData(urlApi)
 
-
-
     const filterProducts = () => {
         let filteredList = [...products];
-        if (filter.gender.length !== 0) {
-            filteredList = filteredList.filter()
+        //Filter by gender
+        if (filter.gender.length === 1) {
+            console.log("hola")
+            filteredList = filteredList.filter(product => {
+                return filter.gender.includes(product.category.gender)
+            })
         }
-        if (filter.use.length !==0) {
-            filteredList = filteredList.filter()
+        //Filter by use
+        if (filter.use.length === 1) {
+            filteredList = filteredList.filter(product => {
+                const filtro = filter.use.includes(product.category.use)
+                // console.log(filtro)
+                return filter.use.includes(product.category.use)
+            })
         }
-        if (filter.size.length !==0 && filter.size.length !== 14) {
-            filteredList = filteredList
+        //Filter by Max price
+        if (filter.maxPrice > 0) {
+            filteredList = filteredList.filter(product => product.price <= filter.maxPrice)
         }
+        //Filter by Min price
+        if (filter.minPrice > 0) {
+            filteredList = filteredList.filter(product => product.price >= filter.minPrice)
+        }
+        //Filter by size
+        if (filter.size.length !== 0 && filter.size.length !== 15) {
+            filteredList = filteredList.filter(product => {
+                let isSizeFound = false
+                //Check for every size in our filter if it exists in the product
+                filter.size.forEach(sizeNumber => {
+                    if (Object.keys(product.size).includes(sizeNumber)) {
+                        isSizeFound = true
+                    }
+                })
+                return isSizeFound
+            })
+        }
+        //Update Displayed Products 
         setDisplayedProducts(filteredList)
     }
 
     useEffect(() => {
         filterProducts()
-
-        // console.log(filter)
-        // if (filter.isFiltered) {
-        //     const filteredList = products.filter(product => {
-        //         if (
-        //             filter.gender.includes(product.category.gender) &&
-        //             filter.use.includes(product.category.use) &&
-        //             (product.price >= filter.minPrice && product.price <= filter.maxPrice)
-        //         ) {
-        //             filter.size.forEach(size => {
-        //                 if (Object.keys(product.size).includes(size)) {
-        //                     return true
-        //                 }
-        //             })
-
-        //             // filter.size.filter(size => Object.keys(product.size).includes(size) ? size)
-        //         } else {
-        //             return false
-        //         }
-        //     })
-        //     setDisplayedProducts(filteredList)
-        // } else {
-        //     console.log("estoy en el else")
-        //     setDisplayedProducts(products)
-        // }
-
     }, [filter, isFetched])
 
-
     const onChangeHandler = (e) => {
-        const category = e.target.parentElement.classList[1]
+        //We select the class of the parent (or the grandparent)
+        const category = e.target.parentElement.classList[1] || e.target.parentElement.parentElement.classList[1]
+        //If we checked a box, add it to the filter
         if (e.target.checked) {
-            setFilter({ ...filter, [category]: [...filter[category], e.target.name], isFiltered: true })
+            setFilter({ ...filter, [category]: [...filter[category], e.target.name] })
+            //If we unchecked a box, remove it from the filter
         } else {
             const newList = [...filter[category]].filter(item => item !== e.target.name)
             setFilter({ ...filter, [category]: newList })
         }
-        console.log(filter)
     }
 
     const onChangeHandlerPrice = (e) => {
-        setFilter({ ...filter, [e.target.name]: e.target.value, isFiltered: true })
+        setFilter({ ...filter, [e.target.name]: e.target.value })
     }
 
     return (
@@ -95,17 +94,17 @@ function Products() {
             <div className='filter'>
                 <fieldset className="filter gender">
                     <legend>Gender</legend>
-                    <label htmlFor="man">Man</label>
+                    <label htmlFor="Man">Man</label>
                     <input
                         type="checkbox"
-                        id="man"
-                        name="man"
+                        id="Man"
+                        name="Man"
                         onChange={onChangeHandler} />
-                    <label htmlFor="woman">Woman</label>
+                    <label htmlFor="Woman">Woman</label>
                     <input
                         type="checkbox"
-                        id="woman"
-                        name="woman"
+                        id="Woman"
+                        name="Woman"
                         onChange={onChangeHandler} />
                 </fieldset>
 
@@ -125,17 +124,17 @@ function Products() {
 
                 <fieldset className="filter use">
                     <legend>Use</legend>
-                    <label htmlFor="lifestyle">Lifestyle</label>
+                    <label htmlFor="Lifestyle">Lifestyle</label>
                     <input
                         type="checkbox"
-                        id="lifestyle"
-                        name="lifestyle"
+                        id="Lifestyle"
+                        name="Lifestyle"
                         onChange={onChangeHandler} />
-                    <label htmlFor="performance">Performance</label>
+                    <label htmlFor="Performance">Performance</label>
                     <input
                         type="checkbox"
-                        id="performance"
-                        name="performance"
+                        id="Performance"
+                        name="Performance"
                         onChange={onChangeHandler} />
                 </fieldset>
                 <fieldset className="filter price">

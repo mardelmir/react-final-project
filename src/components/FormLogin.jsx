@@ -1,10 +1,13 @@
 import '../styles/Form.css'
 import { useState } from "react"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCurrentUser } from '../storage/CurrentUserContext.jsx';
 
 function FormLogin() {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const { setCurrentUser } = useCurrentUser()
+    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -12,13 +15,14 @@ function FormLogin() {
         const payload = { email, password }
 
         try {
-            await fetch(urlPost, {
+            const response = await fetch(urlPost, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             })
-            setEmail('')
-            setPassword('')
+            const data = await response.json()
+            setCurrentUser(data)
+            navigate('/')
         }
         catch (error) { console.log(error) }
     }
@@ -27,12 +31,22 @@ function FormLogin() {
         <form className='form' onSubmit={handleSubmit}>
             <div className='formItem'>
                 <label htmlFor='emailId'>Email:</label>
-                <input type='email' id='emailId' name='email' required />
+                <input
+                    type='email'
+                    id='emailId'
+                    name='email'
+                    onChange={e => setEmail(e.target.value)}
+                    required />
             </div>
 
             <div className='formItem'>
                 <label htmlFor='passId'>Contraseña:</label>
-                <input type='password' id='passId' name='password' required />
+                <input
+                    type='password'
+                    id='passId'
+                    name='password'
+                    onChange={e => setPassword(e.target.value)}
+                    required />
             </div>
 
             <div className='warning'></div>

@@ -1,12 +1,19 @@
-import { Link } from 'react-router-dom'
+import '../styles/Header.css'
+import { Link, useNavigate } from 'react-router-dom'
+import { useCurrentUser } from '../storage/CurrentUserContext.jsx'
 
 function Header() {
+    const { currentUser, setCurrentUser } = useCurrentUser()
+    const navigate = useNavigate()
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         const urlPost = 'http://localhost:8080/api/v1/logout'
 
         try {
             await fetch(urlPost, { method: 'POST' })
+            setCurrentUser(null)
+            navigate('/')
         }
         catch (error) { console.log(error) }
     }
@@ -20,16 +27,19 @@ function Header() {
                 <Link to='/about'>About Us</Link>
             </nav>
             <input className='searchBar' type='text' />
-            <div className='menu'>
-                <Link to='/login'>Sign In</Link>
-                <p>|</p>
-                <Link to='/register'>Sign Up</Link>
-                <p>|</p>
-                <button onClick={handleSubmit}>Log Out</button>
 
-                {/* No están ni la imagen ni el componente creados 
+            {!currentUser
+                ? <div className='menu user'>
+                    <Link to='/login'>Sign In</Link>
+                    <Link to='/register'>Sign Up</Link>
+                </div>
+                : <div className='menu user'>
+                    <button onClick={handleSubmit}>Log Out</button>
+                </div>
+            }
+            {/* No están ni la imagen ni el componente creados 
                     <Link to='/cart'><img className='cart' src='src/assets/icons/cart.png' /></Link> */}
-            </div>
+
         </header >
     )
 }

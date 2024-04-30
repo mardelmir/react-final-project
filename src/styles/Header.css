@@ -1,0 +1,33 @@
+.header {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+}
+
+.header,
+.menu {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    background-color: #f8f8f8;
+    align-items: center;
+
+    a {
+        padding: 10px;
+    }
+}
+
+.user {
+    display: flex;
+    gap: 3px;
+
+    a {
+        border-radius: 4px;
+        transition: background-color .25s linear;
+    }
+}
+
+.user a:hover {
+    background-color: steelblue;
+    color: #E8EAF0
+}
