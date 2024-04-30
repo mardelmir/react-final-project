@@ -14,14 +14,16 @@ function Card() {
             {loading
                 ? (<h3>Loading...</h3>)
                 : (
-                    <div key={product._id} className='card'>
-                        <h2>{product.name}</h2>
-                        <img src={product.img} alt={product.name} />
-                        <p>Gender: {product.category.gender}</p>
-                        <p>Use: {product.category.use}</p>
-                        {/* <p>Size: {product.size}</p> */}
-                        <p>Price: {product.price}€</p>
-                        <Link to='/products'><button>Go back</button></Link>
+                    <div className='card-container'>
+                        <div key={product._id} className='card'>
+                            <h2>{product.name}</h2>
+                            <img src={product.img} alt={product.name} />
+                            <p><span>Gender</span>: {product.category.gender}</p>
+                            <p><span>Use</span>: {product.category.use}</p>
+                            {/* <p><span>Size</span>: {product.size}</p> */}
+                            <p><span>Price</span>: {product.price}€</p>
+                            <Link to='/products'><button>Go back</button></Link>
+                        </div>
                     </div>
                 )
             }

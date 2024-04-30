@@ -35,10 +35,10 @@ body {
 }
 
 main {
+  align-items: center;
   box-sizing: border-box;
   min-height: 100%;
   min-width: 100%;
-
 }
 
 h1 {
@@ -194,12 +194,14 @@ button:hover {
   padding-top: 20px;
 }
 
-.banners, h2 {
+.banners,
+h2 {
   color: white;
   font-weight: 700;
 }
 
-.banner-1, .banner-2 {
+.banner-1,
+.banner-2 {
   width: 50%;
   height: 400px;
   background-color: lightslategray;
@@ -210,13 +212,19 @@ button:hover {
   padding-bottom: 25px;
 }
 
-.shop-now, .learn-more {
-    border: 2px solid white; /* Define el borde de 2px de ancho y sólido */
-    padding: 10px 20px; /* Agrega un espacio interno alrededor del contenido */
-    display: inline-block; /* Hace que los elementos se comporten como bloques en línea */
-    text-align: center; /* Centra el texto dentro del div */
-    text-decoration: none; 
-    color: white; /* Define el color del texto */
+.shop-now,
+.learn-more {
+  border: 2px solid white;
+  /* Define el borde de 2px de ancho y sólido */
+  padding: 10px 20px;
+  /* Agrega un espacio interno alrededor del contenido */
+  display: inline-block;
+  /* Hace que los elementos se comporten como bloques en línea */
+  text-align: center;
+  /* Centra el texto dentro del div */
+  text-decoration: none;
+  color: white;
+  /* Define el color del texto */
 }
 
 /* carrusel marcas */
@@ -226,4 +234,3 @@ button:hover {
   background-color: lightgray;
 
 }
-
