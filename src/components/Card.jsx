@@ -16,9 +16,7 @@ function Card() {
                 : (
                     <div className='card-container'>
                         <div key={product._id} className='card'>
-                            <div className='card-img'>
-                                <img src={product.img} alt={product.name} />
-                            </div>
+                            <img src={product.img} alt={product.name} />
                             <div className='detail'>
                                 <h2>{product.name}</h2>
                                 <p><span>Gender</span>: {product.category.gender}</p>
