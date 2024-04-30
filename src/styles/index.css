@@ -188,6 +188,10 @@ button:hover {
   color: #6ba9db;
 }
 
+.h1-use {
+  padding: 25px;
+
+}
 
 /* home banners */
 .banners {
@@ -210,10 +214,23 @@ button:hover {
   justify-content: flex-start;
   align-items: flex-end;
   padding-left: 25px;
+  padding-bottom: 25px;
 }
 
-.show-now, .learn-more {
-  border: white;
-  width: fit-content;
-  height: fit-content;
+.shop-now, .learn-more {
+    border: 2px solid white; /* Define el borde de 2px de ancho y sólido */
+    padding: 10px 20px; /* Agrega un espacio interno alrededor del contenido */
+    display: inline-block; /* Hace que los elementos se comporten como bloques en línea */
+    text-align: center; /* Centra el texto dentro del div */
+    text-decoration: none; 
+    color: white; /* Define el color del texto */
 }
+
+/* carrusel marcas */
+.carrusel-brands-container {
+  width: 100%;
+  height: fit-content;
+  background-color: lightgray;
+
+}
+
