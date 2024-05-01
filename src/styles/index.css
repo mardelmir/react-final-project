@@ -64,25 +64,6 @@ section {
   margin: 30px;
 }
 
-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
-
-input {
-  padding: 6px;
-  border: 1px solid #98b4cb;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-input:focus {
-  border-color: transparent;
-  outline: #6ba9db solid 1.5px;
-}
-
 button,
 .btn {
   border-radius: 6px;
@@ -97,7 +78,8 @@ button,
   transition: background-color 0.25s;
 }
 
-button:hover {
+button:hover,
+.btn:hover {
   background-color: steelblue;
 }
 

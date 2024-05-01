@@ -4,11 +4,12 @@ import { CurrentUserProvider } from './storage/CurrentUserContext.jsx';
 
 import Header from './components/Header.jsx';
 import Home from './components/Home.jsx';
-import FormLogin from './components/FormLogin.jsx';
-import FormRegister from './components/FormRegister.jsx';
+import Login from './components/Login.jsx';
+import Register from './components/Register.jsx';
 import Products from './components/Products.jsx';
 import Footer from './components/Footer.jsx'
 import Card from './components/Card.jsx'
+import NewProduct from './components/NewProduct.jsx';
 
 const App = () => {
     //const apiUrl = import.meta.env.VITE_APP_API_URL
@@ -21,9 +22,10 @@ const App = () => {
                     <Routes>
                         <Route path='/' element={<Home />} />
                         <Route path='/products' element={<Products />} />
-                        <Route path='/login' element={<FormLogin />} />
-                        <Route path='/register' element={<FormRegister />} />
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/register' element={<Register />} />
                         <Route path='/products/:id' element={<Card />} />
+                        <Route path='/new' element={<NewProduct />} />
                     </Routes>
                 </main>
                 <Footer />

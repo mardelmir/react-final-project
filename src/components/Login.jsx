@@ -1,19 +1,18 @@
 import '../styles/Form.css'
-import { useState } from 'react'
+import { useState } from "react"
 import { Link, useNavigate } from 'react-router-dom';
 import { useCurrentUser } from '../storage/CurrentUserContext.jsx';
 
-function FormRegister() {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [role, setRole] = useState()
+function Login() {
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
     const { setCurrentUser } = useCurrentUser()
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const urlPost = 'http://localhost:8080/api/v1/register'
-        const payload = { email, password, role }
+        const urlPost = 'http://localhost:8080/api/v1/login'
+        const payload = { email, password }
 
         try {
             const response = await fetch(urlPost, {
@@ -29,8 +28,9 @@ function FormRegister() {
     }
 
     return (
-        <form className='form' onSubmit={handleSubmit}>
-            <div className='formItem'>
+        <div className='form-container'>
+            <h2>Log In</h2>
+            <form className='form' onSubmit={handleSubmit}>
                 <label htmlFor='email'>Email:</label>
                 <input
                     type='email'
@@ -38,30 +38,23 @@ function FormRegister() {
                     name='email'
                     onChange={e => setEmail(e.target.value)}
                     required />
-            </div>
 
-            <div className='formItem'>
-                <label htmlFor='password'>Contraseña:</label>
+                <label htmlFor='password'>Password:</label>
                 <input
                     type='password'
                     id='password'
                     name='password'
                     onChange={e => setPassword(e.target.value)}
                     required />
-            </div>
 
-            <div className='formItem'>
-                <label htmlFor='role'>Administrador</label>
-                <input type='checkbox' name='role' onClick={e => setRole('on')} />
-            </div>
-
-            {/* <div className='warning'></div> */}
-            <div className='btn-container'>
-                <button type='submit'>Sign Up</button>
-                <Link to='/'><button>Go back</button></Link>
-            </div>
-        </form>
+                <div className='warning'></div>
+                <div className='btn-container'>
+                    <button className='formBtn' type='submit'>Log In</button>
+                    <Link to='/'><button>Go back</button></Link>
+                </div>
+            </form>
+        </div>
     )
 }
 
-export default FormRegister
+export default Login
