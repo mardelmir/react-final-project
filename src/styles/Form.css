@@ -34,7 +34,6 @@
     width: 100%;
     padding: 6px;
     border: transparent;
-    background-color: white;
     /* border: .5px solid #98b4cb; */
     border-radius: 5px;
     font-size: 14px;
@@ -67,7 +66,8 @@ label {
     margin-top: 10px;
 }
 
-.custom-file-upload{
+.custom-file-upload {
+    background-color: white;
     cursor: pointer;
 }
 
