@@ -1,10 +1,10 @@
 import '../styles/DarkButton.css'
+import {useTheme} from '../storage/ThemeContext.jsx'
 
 function DarkButton() {
+    const {theme, toggleTheme} = useTheme()
     const darkMode = (e) => {
-        if (e.target.checked === true) {
-            console.log("hello")
-        }
+        toggleTheme()
     }
     return (
         <>
