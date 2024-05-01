@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { carruselData } from '../assets/carruselData.js';
+import { carruselData } from '../utils/carruselData.js';
 
 function Home() {
     const listRef = useRef();
