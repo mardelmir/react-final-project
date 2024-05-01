@@ -37,9 +37,6 @@ function Header() {
                     <button onClick={handleSubmit}>Log Out</button>
                 </div>
             }
-            {/* No están ni la imagen ni el componente creados 
-                    <Link to='/cart'><img className='cart' src='src/assets/icons/cart.png' /></Link> */}
-
         </header >
     )
 }

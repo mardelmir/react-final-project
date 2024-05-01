@@ -8,6 +8,7 @@ function Home() {
     useEffect(() => {
         const listNode = listRef.current;
         const imgNode = listNode.querySelectorAll('li>img')[currentIndex];
+        
         if (imgNode) {
             const scrollOptions = {
                 top: imgNode.offsetTop - (listNode.offsetHeight - imgNode.offsetHeight) / 2,
@@ -25,9 +26,7 @@ function Home() {
             })
         } else {
             const isLastSlide = currentIndex === carruselData.length - 1;
-            if (!isLastSlide) {
-                setCurrentIndex(curr => curr + 1);
-            }
+            if (!isLastSlide) { setCurrentIndex(curr => curr + 1) }
         }
     }
 
