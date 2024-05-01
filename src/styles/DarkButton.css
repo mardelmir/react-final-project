@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+input#toggle {
+    display:none;
+}
+
+.containerDarkMode {
+    display: flex;
+    align-items: center;
+    width: 70px;
+    height: 35px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #e0dfdf;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.05) inset;
+    /* padding: 1.5px 2px 0px 2px; */
+    padding: 0px 3px;
+    transition: background-color 1s ease;
+}
+
+input#toggle:checked + label .circle{
+    margin-left: 37px;
+    background-color: #363638;
+}
+
+input#toggle:checked + label .containerDarkMode{
+    background-color: #626266;
+}
+
+input#toggle:checked + label .images{
+    margin-top: 0px;
+}
+
+.images {
+    margin-top: -28px;
+    transition: margin-top 0.7s ease;
+}
+.circle {
+    /* display: flex;
+    align-items: center; */
+    height: 27px;
+    width: 27px;
+    background-color: white;
+    border-radius: 100%;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.05), 
+    -4px -4px 7px rgba(0,0,0,0.05) inset;
+    transition: margin-left 0.7s ease, background-color 1s ease;
+    overflow: hidden;
+}
+
+.sun {
+    margin-top: -1.75px;
+    margin-left: 1.5px;
+}
+
+.sun, .moon{
+    width: 24px;
+}

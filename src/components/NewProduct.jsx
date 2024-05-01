@@ -54,11 +54,12 @@ function NewProduct() {
                     required />
 
                 <label htmlFor='img'>Image</label>
-                <div
-                    className="custom-file-upload"
-                    style={{ width: selectedFile ? '100%' : '50%' }}
-                    onClick={() => img.click()}>
-                    {selectedFile ? selectedFile.name : 'Select file'}
+                <div className='img'>
+                    <div
+                        className={`custom-upload ${!selectedFile ? '' : 'file'}`}
+                        onClick={() => img.click()}>
+                        {selectedFile ? selectedFile.name : '+'}
+                    </div>
                 </div>
                 <input
                     type='file'

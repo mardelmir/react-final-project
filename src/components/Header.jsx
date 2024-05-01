@@ -1,6 +1,7 @@
 import '../styles/Header.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCurrentUser } from '../storage/CurrentUserContext.jsx'
+import DarkButton from './DarkButton.jsx'
 
 function Header() {
     const { currentUser, setCurrentUser } = useCurrentUser()
@@ -21,9 +22,14 @@ function Header() {
     return (
         <header className='header'>
             <nav className='menu'>
-                <div>soy el LOGO</div>
+                <div>
+                    <Link to='/'>
+                        <img className='logo' src="../public/images/Logo2.png" alt="logo" />
+                    </Link>
+                </div>
                 <Link to='/'>Home</Link>
                 <Link to='/products'>Products</Link>
+                <Link to='/'>Wishlist</Link>
                 <Link to='/about'>About Us</Link>
             </nav>
             <input className='searchBar' type='text' />
@@ -37,6 +43,7 @@ function Header() {
                     <button onClick={handleSubmit}>Log Out</button>
                 </div>
             }
+            <DarkButton />
         </header >
     )
 }

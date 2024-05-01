@@ -62,6 +62,7 @@ function Home() {
             <section className='banners'>
                 <div className='banner-1'>
                     <div >
+                        {/* <img src="../public/images/Try-On-Event-Vote-Cover-Photo-Anya-Samantha-768x432.jpeg" alt="" /> */}
                         <h2>POPULAR PRODUCTS</h2>
                         <p>Our most valued footwear</p>
                         <div className='shop-now'>

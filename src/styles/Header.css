@@ -4,6 +4,11 @@
     padding: 20px;
 }
 
+.logo {
+    width: 100px;
+   margin-right: 20px;
+}
+
 .header,
 .menu {
     display: flex;
@@ -17,9 +22,27 @@
     }
 }
 
+.searchBar{
+    display: flex;
+    flex-grow: .25;
+    background-color: #e0dfdf;
+    padding: 7px;
+    border: transparent;
+    border-radius: 5px;
+    font-size: 14px;
+    background-image: url('../assets/images/glass.svg');
+    background-repeat: no-repeat;
+    
+}
+
+.searchBar:focus{
+    border-color: transparent;
+    outline: slategrey solid 1px;
+}
+
 .user {
     display: flex;
-    gap: 3px;
+    gap: 20px;
 
     a {
         border-radius: 4px;
@@ -28,5 +51,5 @@
 }
 
 .user a:hover {
-   color:  #6ba9db;
+    color: #6ba9db;
 }

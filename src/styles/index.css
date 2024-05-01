@@ -19,21 +19,6 @@ body {
   min-height: 100vh;
 }
 
-.header {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 20px;
-}
-
-.header,
-.menu {
-  display: flex;
-  justify-content: space-around;
-  gap: 20px;
-  background-color: #f8f8f8;
-  align-items: center;
-}
-
 main {
   box-sizing: border-box;
   min-height: 100vh;
@@ -175,8 +160,7 @@ button:hover,
   gap: 40px;
 }
 
-.banners,
-h2 {
+.banners h2 {
   color: white;
   font-weight: 700;
 }

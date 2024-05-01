@@ -26,7 +26,7 @@
     height: 100px;
 }
 
-.custom-file-upload,
+.custom-upload,
 .form input,
 .form textarea,
 .form select {
@@ -66,9 +66,26 @@ label {
     margin-top: 10px;
 }
 
-.custom-file-upload {
-    background-color: white;
+.img {
+    display: flex;
+    /* justify-content: center; */
+    width: 100%;
+}
+
+.custom-upload {
+   width: fit-content;
+   padding: 5px 12px;
+    text-align: center;
+    background-color: slategray;
+    color: white;
     cursor: pointer;
+}
+
+.file {
+    width: 100%;
+    background-color: white;
+    color: black;
+    text-align: left;
 }
 
 .btn-container {
