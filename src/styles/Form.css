@@ -15,6 +15,7 @@
     flex-direction: column;
     align-items: start;
     gap: 10px;
+    width: 400px;
     padding: 20px;
     margin: 20px;
     background-color: #e7eaf0;
@@ -25,13 +26,16 @@
     height: 100px;
 }
 
+.custom-file-upload,
 .form input,
 .form textarea,
 .form select {
     box-sizing: border-box;
     width: 100%;
     padding: 6px;
-    border: .5px solid #98b4cb;
+    border: transparent;
+    background-color: white;
+    /* border: .5px solid #98b4cb; */
     border-radius: 5px;
     font-size: 14px;
 }
@@ -47,11 +51,24 @@
     display: flex;
     gap: 7px;
     width: 100%;
+    margin-top: 5px;
+}
+
+.option {
+    width: 50%;
 
     input,
     select {
-        width: 50%;
+        margin-top: 10px;
     }
+}
+
+label {
+    margin-top: 10px;
+}
+
+.custom-file-upload{
+    cursor: pointer;
 }
 
 .btn-container {

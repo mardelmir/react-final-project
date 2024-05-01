@@ -162,8 +162,9 @@ button:hover,
   color: #6ba9db;
 }
 
-.h1-use {
+.h1-use h2, .carrusel-brands-section h2  {
   padding: 25px;
+  color:#213547;
 
 }
 
@@ -172,7 +173,6 @@ button:hover,
   display: flex;
   justify-content: center;
   gap: 40px;
-  padding-top: 20px;
 }
 
 .banners,
@@ -196,16 +196,20 @@ h2 {
 .shop-now,
 .learn-more {
   border: 2px solid white;
-  /* Define el borde de 2px de ancho y sólido */
   padding: 10px 20px;
-  /* Agrega un espacio interno alrededor del contenido */
   display: inline-block;
-  /* Hace que los elementos se comporten como bloques en línea */
   text-align: center;
-  /* Centra el texto dentro del div */
   text-decoration: none;
   color: white;
-  /* Define el color del texto */
+  cursor: pointer;
+}
+
+.shop-now:focus,
+.learn-more:focus {
+
+ border-bottom: 1px solid;
+  background: #bae498;
+
 }
 
 /* carrusel marcas */
@@ -213,5 +217,4 @@ h2 {
   width: 100%;
   height: fit-content;
   background-color: lightgray;
-
 }
