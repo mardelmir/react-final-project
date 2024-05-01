@@ -178,10 +178,13 @@ img {
   padding-left: 25px;
   padding-bottom: 25px;
   color: white;
+  background-size: cover;
+  
 }
 
 .banner-1 {
   background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(33,53,71,0.11808473389355745) 35%, rgba(0, 213, 255, 0.244) 100%), url("../public/images/Try-On-Event-Vote-Cover-Photo-Anya-Samantha-768x432.jpeg");
+  
 }
 
 .banner-2 {
