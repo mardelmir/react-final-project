@@ -1,0 +1,147 @@
+/* Carrusel */
+.carrusel-container {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 70vh;
+    margin: 0 auto;
+}
+
+.slider-container {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.container-images {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    overflow: hidden;
+}
+
+/* .images img, */
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gradient {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(2, 0, 36, 0.4) 0%, rgba(33, 53, 71, 0.1) 50%, rgba(0, 213, 255, 0) 100%);
+    position: absolute;
+    z-index: 2;
+    opacity: .5;
+}
+
+/* Arrows */
+.rightArrow,
+.leftArrow {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 50px;
+    font-weight: 700;
+    color: #fff;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.leftArrow {
+    left: 32px;
+}
+
+.rightArrow {
+    right: 32px;
+}
+
+/* Dots container */
+.dots-container,
+.dot-container-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot-container-item {
+    margin: 8px 3px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.active {
+    color: #6ba9db;
+}
+
+.h1-use h2,
+.carrusel-brands-section h2 {
+    padding: 25px;
+    color: #213547;
+
+}
+
+/* Home banners */
+.banners {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.banners h2 {
+    color: white;
+    font-weight: 700;
+}
+
+.banner-1,
+.banner-2 {
+    width: 50%;
+    height: 400px;
+    background-color: lightslategray;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-left: 25px;
+    padding-bottom: 25px;
+    color: white;
+    background-size: cover;
+}
+
+.banner-1 {
+    background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(33, 53, 71, 0.11808473389355745) 35%, rgba(0, 213, 255, 0.244) 100%), url("/images/TryOnEvent.jpeg");
+}
+
+.banner-2 {
+    background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(33, 53, 71, 0.11808473389355745) 35%, rgba(0, 213, 255, 0.244) 100%), url("/images/race.jpeg");
+}
+
+.shop-now,
+.learn-more {
+    border: 2px solid white;
+    padding: 10px 20px;
+    line-height: 3.5em;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+}
+
+.shop-now:hover,
+.learn-more:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: transparent;
+    color: white;
+}
+
+/* Brands carrusel */
+.carrusel-brands-container {
+    width: 100%;
+    height: fit-content;
+    background-color: lightgray;
+}

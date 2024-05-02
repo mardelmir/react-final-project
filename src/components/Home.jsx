@@ -1,4 +1,6 @@
+import '../styles/Home.css'
 import { useRef, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import { carruselData } from '../utils/carruselData.js';
 
 function Home() {
@@ -8,7 +10,7 @@ function Home() {
     useEffect(() => {
         const listNode = listRef.current;
         const imgNode = listNode.querySelectorAll('li>img')[currentIndex];
-        
+
         if (imgNode) {
             const scrollOptions = {
                 top: imgNode.offsetTop - (listNode.offsetHeight - imgNode.offsetHeight) / 2,
@@ -42,6 +44,7 @@ function Home() {
                         {carruselData.map(item =>
                             <li key={item.id} className='image'>
                                 <img src={item.imgUrl} alt='Carrusel image' className='image' />
+                                <div className='gradient'></div>
                             </li>
                         )}
                     </ul>
@@ -64,18 +67,14 @@ function Home() {
                     <div >
                         <h2>POPULAR PRODUCTS</h2>
                         <p>Our most valued footwear</p>
-                        <div className='shop-now'>
-                            <p>shop now!</p>
-                        </div>
+                        <Link to='/products' className='shop-now'>Shop now!</Link>
                     </div>
                 </div>
                 <div className='banner-2'>
                     <div>
                         <h2>ENVIRONMENT</h2>
-                        <h3>We care our planet</h3>
-                        <div className='learn-more'>
-                            <p>Learn more!</p>
-                        </div>
+                        <p>We care our planet</p>
+                        <Link to='/about' className='learn-more'>Learn more!</Link>
                     </div>
                 </div>
             </section>

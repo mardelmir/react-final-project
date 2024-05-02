@@ -24,7 +24,7 @@ function Header() {
             <nav className='menu'>
                 <div>
                     <Link to='/'>
-                        <img className='logo' src="../public/images/Logo2.png" alt="logo" />
+                        <img className='logo' src="/images/logo.png" alt="logo" />
                     </Link>
                 </div>
                 <Link to='/'>Home</Link>

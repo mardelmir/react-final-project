@@ -18,7 +18,7 @@ function NewProduct() {
         const values = Object.fromEntries(formData);
         console.log(values)
         // const urlPost = 'http://localhost:8080/api/v1/admin/'
-        // const payload = { email, password, role }
+        // const payload = { values }
 
         // try {
         //     await fetch(urlPost, {
