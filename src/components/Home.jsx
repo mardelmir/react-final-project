@@ -86,8 +86,12 @@ function Home() {
             <section className="carrusel-brands-section">
                 <h2>OUR BRANDS</h2>
                 <div className='carrusel-brands-container'>
-                    <img src="public/images/vivobarefoot2.png" alt="vivobarefoot" />
-                    <img src="public/images/vibram.png" alt="vibram" />
+                    <a href="https://www.vivobarefoot.com/eu/">
+                        <img src="public/images/vivobarefoot2.png" alt="vivobarefoot"/>
+                    </a>
+                    <a href="https://www.vibram.com/us">
+                        <img src="public/images/vibram.png" alt="vibram" />
+                    </a>
                 </div>
             </section>
         </>

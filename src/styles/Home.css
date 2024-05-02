@@ -109,12 +109,14 @@
     padding: 25px;
     color: #213446;
     transition: color 0.7s ease;
+    font-size: 50px;
 }
 
 .carrusel-brands-section h2 {
     padding: 25px 25px 25px 0px;
     color: #213446;
     transition: color 0.7s ease;
+    font-size: 30px;
 }
 
 /* Home banners */
@@ -174,13 +176,14 @@
 .carrusel-brands-container {
     width: 100%;
     height: fit-content;
-    background-color: lightgray;
     display: flex;
     gap: 20px;
+    justify-content: space-evenly;
+
 }
 
 .carrusel-brands-container img {
-  width: 150px;
+  height: 80px;
 }
 
 /* DARK MODE */
