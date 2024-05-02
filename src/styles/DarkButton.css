@@ -22,11 +22,11 @@ input#toggle {
 
 input#toggle:checked + label .circle{
     margin-left: 37px;
-    background-color: #363638;
+    background-color: #1a2a38;
 }
 
 input#toggle:checked + label .containerDarkMode{
-    background-color: #626266;
+    background-color: #50677d80;
 }
 
 input#toggle:checked + label .images{

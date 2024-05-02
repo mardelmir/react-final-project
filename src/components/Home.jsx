@@ -38,6 +38,10 @@ function Home() {
         <>
             <section className='carrusel-container'>
                 <div className='slider-container'>
+                    <div className='slide-container-h1'>
+                        <h1>EXPLORE YOUR LIMITS</h1>
+                        <p>Hola mundo</p>
+                    </div>
                     <div className='leftArrow' onClick={() => scrollToImage('prev')}>&#10092;</div>
                     <div className='rightArrow' onClick={() => scrollToImage('next')}>&#10093;</div>
                     <ul className='container-images' ref={listRef} >

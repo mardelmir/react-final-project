@@ -12,6 +12,13 @@
     }
 }
 
+.btn-container{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
 .product {
     display: flex;
     flex-direction: column;
@@ -37,7 +44,6 @@
 
 .size {
     display: flex;
-
 }
 
 /* Card */
@@ -75,6 +81,11 @@
     height: 100%;
     aspect-ratio: auto;
     object-fit: cover;
+}
+
+.star {
+    width: 30px;
+    cursor: pointer;
 }
 
 @media (max-width:770px) {

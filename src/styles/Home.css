@@ -40,6 +40,29 @@
     opacity: .5;
 }
 
+
+.slide-container-h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: content-box;
+    justify-content: end;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    z-index: 5;
+    cursor: pointer;
+    text-shadow: 0 0 60px rgba(0, 0, 0, .75);
+}
+
+.slide-container-h1 h1 {
+    margin: 0px;
+
+}
+
 /* Arrows */
 .rightArrow,
 .leftArrow {
@@ -79,11 +102,16 @@
     color: #6ba9db;
 }
 
-.h1-use h2,
-.carrusel-brands-section h2 {
+.h1-use h2 {
     padding: 25px;
-    color: #213547;
+    color: #213446;
+    transition: color 0.7s ease;
+}
 
+.carrusel-brands-section h2 {
+    padding: 25px 25px 25px 0px;
+    color: #213446;
+    transition: color 0.7s ease;
 }
 
 /* Home banners */
@@ -144,4 +172,17 @@
     width: 100%;
     height: fit-content;
     background-color: lightgray;
+}
+
+/* DARK MODE */
+.dark .h1-use h2 {
+    padding: 25px;
+    color: #f8f8f8;
+    transition: color 0.7s ease;
+}
+
+.dark .carrusel-brands-section h2 {
+    padding: 25px 25px 25px 0px;
+    color: #f8f8f8;
+    transition: color 0.7s ease;
 }

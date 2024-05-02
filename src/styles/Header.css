@@ -3,17 +3,22 @@
     width: 100%;
     padding: 20px;
     background-color: #f8f8f8;
+    position: fixed;
+    z-index: 10;
 }
 
 .header,
-.nav {
+.nav,
+.user {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 15px;
+    transition: background-color 0.7s ease;
 
     a {
-        margin: 0px 5px;
         padding: 7px;
+        transition: color 0.3s ease;
     }
 }
 
@@ -36,6 +41,8 @@
     border-bottom-left-radius: 0px;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
+    transition: background-color 0.7s ease, color 0.7s ease;
+    color: #f8f8f8;
 }
 
 .glass {
@@ -67,24 +74,33 @@
 .user {
     display: flex;
     align-items: center;
-
-    a {
-        border: 1px solid transparent;
-        border-radius: 4px;
-        transition: background-color .25s linear;
-    }
 }
-
-/* .user a:hover {
-    /* background-color: #6ba9db80; */
-    /* color: #213446;} */
 
 
 .cart {
     width: 35px;
+    transition: stroke 0.5s ease;
 }
 
 .cart:hover {
-    background-color: transparent;
     stroke: #6ba9db;
+    transition: stroke 0.5s ease;
+}
+
+/* Dark Mode */
+
+.dark .search-container button {
+    background-color: #f8f8f8;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    color: #213446;
+}
+
+.dark .search-container:focus-within {
+    border-color: transparent;
+    outline: #f8f8f8 solid .5px;
+}
+
+.dark .cart {
+    transition: stroke 0.7s ease;
+    stroke: #f8f8f8;
 }

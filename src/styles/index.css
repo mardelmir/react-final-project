@@ -3,10 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #ce8989;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -23,6 +19,7 @@ main {
   box-sizing: border-box;
   min-height: 100vh;
   min-width: 100vw;
+  margin-top: 130px;
 }
 
 h1 {
@@ -59,7 +56,6 @@ button,
   font-family: inherit;
   color: white;
   background-color: #213446;
-  /* background-color: #6ba9db; */
   cursor: pointer;
   transition: background-color 0.25s;
 }
@@ -69,9 +65,9 @@ button:hover,
   background-color: steelblue;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
+/* Dark Mode */
+
+.dark main {
+  background-color: #213547;
+  transition: background-color 0.7s ease;
 }
