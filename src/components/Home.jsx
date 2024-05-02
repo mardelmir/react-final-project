@@ -40,7 +40,8 @@ function Home() {
                 <div className='slider-container'>
                     <div className='slide-container-h1'>
                         <h1>EXPLORE YOUR LIMITS</h1>
-                        <p>Hola mundo</p>
+                        <p>discover a wide collection of minimalist footwear</p>
+                        <Link to='/about' className='learn-more'>Learn more!</Link>
                     </div>
                     <div className='leftArrow' onClick={() => scrollToImage('prev')}>&#10092;</div>
                     <div className='rightArrow' onClick={() => scrollToImage('next')}>&#10093;</div>
@@ -85,7 +86,8 @@ function Home() {
             <section className="carrusel-brands-section">
                 <h2>OUR BRANDS</h2>
                 <div className='carrusel-brands-container'>
-                    <h2>soy el carrusel de marcas</h2>
+                    <img src="public/images/vivobarefoot2.png" alt="vivobarefoot" />
+                    <img src="public/images/vibram.png" alt="vibram" />
                 </div>
             </section>
         </>

@@ -6,6 +6,15 @@ function NewProduct() {
     const [selectedFile, setSelectedFile] = useState(null);
     const formRef = useRef()
 
+    const [name, setName] = useState('')
+    const [description, setDescription] = useState('')
+    const [price, setPrice] = useState('')
+    const [img, setImg] = useState('test1234')
+    const [gender, setGender] = useState('')
+    const [use, setUse] = useState('')
+    const [size, setSize] = useState('')
+    const [quantity, setQuantity] = useState('')
+
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         setSelectedFile(file);
@@ -14,9 +23,18 @@ function NewProduct() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const formData = new FormData(formRef.current)
-        const values = Object.fromEntries(formData);
-        console.log(values)
+        const payload = {
+            name,
+            description,
+            price,
+            category: {
+                gender,
+                use
+            },
+            size
+        }
+
+
         // const urlPost = 'http://localhost:8080/api/v1/admin/'
         // const payload = { values }
 
@@ -40,10 +58,15 @@ function NewProduct() {
                     type='text'
                     id='name'
                     name='name'
+                    value={name}
+                    onChange={e => setName(e.target.value)}
                     required />
 
                 <label htmlFor='description'>Description</label>
-                <textarea name='description'></textarea>
+                <textarea
+                    name='description'
+                    value={description}
+                    onChange={e => setDescription(e.target.value)}></textarea>
 
                 <label htmlFor='price'>Price (€)</label>
                 <input
@@ -51,9 +74,11 @@ function NewProduct() {
                     id='price'
                     name='price'
                     step='0.01'
+                    value={price}
+                    onChange={e => setPrice(e.target.value)}
                     required />
 
-                <label htmlFor='img'>Image</label>
+                {/* <label htmlFor='img'>Image</label>
                 <div className='img'>
                     <div
                         className={`custom-upload ${!selectedFile ? '' : 'file'}`}
@@ -65,23 +90,25 @@ function NewProduct() {
                     type='file'
                     id='img'
                     name='img'
+                    value={img}
                     accept='image/*'
                     style={{ display: 'none' }}
-                    onChange={handleFileChange} />
+                    onChange={handleFileChange} /> */}
 
                 <label>Category</label>
                 <div className='option-container'>
-                    <select name='gender'>
+                    {/* <select name='gender' onChange={ }>
                         <option value='' hidden>Gender</option>
                         <option value='Man' name='Man'>Man</option>
                         <option value='Woman' name='Woman'>Woman</option>
-                    </select>
-                    <select name='use'>
+                    </select> */}
+                    {/* <select name='use' onChange={ }>
                         <option value='' hidden>Use</option>
                         <option value='Lifestyle' name='Lifestyle'>Lifestyle</option>
                         <option value='Performance' name='Performance'>Performance</option>
-                    </select>
+                    </select> */}
                 </div>
+
 
                 <div className='option-container'>
                     <div className='option'>
@@ -92,15 +119,19 @@ function NewProduct() {
                             name='size'
                             min='35'
                             max='49'
+                            value={size}
+                            onChange={e => e.target.value}
                             step='1'
                             required />
                     </div>
                     <div className='option'>
-                        <label htmlFor='cuantity'>Cuantity</label>
+                        <label htmlFor='quantity'>Quantity</label>
                         <input
                             type='number'
-                            id='cuantity'
-                            name='cuantity'
+                            id='quantity'
+                            name='quantity'
+                            value={quantity}
+                            onChange={e => setQuantity.target.value}
                             step='1'
                             required />
                     </div>
@@ -116,3 +147,27 @@ function NewProduct() {
 }
 
 export default NewProduct
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const formData = new FormData(formRef.current)
+// const values = Object.fromEntries(formData);
+// console.log(values)
