@@ -10,6 +10,7 @@ import Register from './components/Register.jsx';
 import Products from './components/Products.jsx';
 import Footer from './components/Footer.jsx'
 import Card from './components/Card.jsx'
+import Cart from './components/Cart.jsx';
 import NewProduct from './components/NewProduct.jsx';
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
                         <Routes>
                             <Route path='/' element={<Home />} />
                             <Route path='/products' element={<Products />} />
+                            <Route path='/cart' element={<Cart />} />
                             <Route path='/login' element={<Login />} />
                             <Route path='/register' element={<Register />} />
                             <Route path='/products/:id' element={<Card />} />

@@ -21,7 +21,7 @@ function Header() {
 
     return (
         <header className='header'>
-            <nav className='menu'>
+            <nav className='nav'>
                 <div>
                     <Link to='/'>
                         <img className='logo' src="/images/logo.png" alt="logo" />
@@ -29,20 +29,28 @@ function Header() {
                 </div>
                 <Link to='/'>Home</Link>
                 <Link to='/products'>Products</Link>
-                <Link to='/'>Wishlist</Link>
                 <Link to='/about'>About Us</Link>
             </nav>
-            <input className='searchBar' type='text' />
 
-            {!currentUser
-                ? <div className='menu user'>
-                    <Link to='/login'>Sign In</Link>
-                    <Link to='/register'>Sign Up</Link>
-                </div>
-                : <div className='menu user'>
-                    <button onClick={handleSubmit}>Log Out</button>
-                </div>
-            }
+            <div className='search-container'>
+                <img src='./src/assets/images/glass.svg' alt='glass' className='glass' />
+                <input className='searchBar' type='text' />
+                <button>Search</button>
+            </div>
+
+            <div className='user'>
+                <Link to='/cart'>
+                    <img src='./src/assets/images/cart.svg' alt='cart' className='cart' />
+                </Link>
+                {!currentUser
+                    ? <>
+                        <Link to='/login'>Sign In</Link>
+                        <Link to='/register'>Sign Up</Link>
+                    </>
+                    : <button onClick={handleSubmit}>Log Out</button>
+                }
+            </div>
+
             <DarkButton />
         </header >
     )

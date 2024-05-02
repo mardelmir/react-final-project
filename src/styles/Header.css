@@ -2,54 +2,89 @@
     box-sizing: border-box;
     width: 100%;
     padding: 20px;
+    background-color: #f8f8f8;
+}
+
+.header,
+.nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    a {
+        margin: 0px 5px;
+        padding: 7px;
+    }
 }
 
 .logo {
     width: 100px;
-   margin-right: 20px;
+    margin-right: 20px;
 }
 
-.header,
-.menu {
+/* Search bar */
+.search-container {
     display: flex;
-    justify-content: space-around;
-    gap: 20px;
-    background-color: #f8f8f8;
+    flex-grow: .25;
+    border-radius: 4px;
+    background-color: #e0dfdf;
+}
+
+.search-container button {
+    background-color: #213446;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.glass {
+    margin-left: 7px;
+}
+
+.searchBar {
+    display: flex;
+    flex-grow: 1;
+    padding: 7px;
+    background-color: transparent;
+    border: transparent;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    font-size: 14px;
+}
+
+.searchBar:focus {
+    border-color: transparent;
+    outline: none;
+}
+
+.search-container:focus-within {
+    border-color: transparent;
+    outline: #213446 solid .5px;
+}
+
+/* User */
+.user {
+    display: flex;
     align-items: center;
 
     a {
-        padding: 10px;
-    }
-}
-
-.searchBar{
-    display: flex;
-    flex-grow: .25;
-    background-color: #e0dfdf;
-    padding: 7px;
-    border: transparent;
-    border-radius: 5px;
-    font-size: 14px;
-    background-image: url('../assets/images/glass.svg');
-    background-repeat: no-repeat;
-    
-}
-
-.searchBar:focus{
-    border-color: transparent;
-    outline: slategrey solid 1px;
-}
-
-.user {
-    display: flex;
-    gap: 20px;
-
-    a {
+        border: 1px solid transparent;
         border-radius: 4px;
         transition: background-color .25s linear;
     }
 }
 
-.user a:hover {
-    color: #6ba9db;
+/* .user a:hover {
+    /* background-color: #6ba9db80; */
+    /* color: #213446;} */
+
+
+.cart {
+    width: 35px;
+}
+
+.cart:hover {
+    background-color: transparent;
+    stroke: #6ba9db;
 }

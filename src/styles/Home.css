@@ -22,7 +22,7 @@
     overflow: hidden;
 }
 
-/* .images img, */
+/* Carrusel images */
 .image {
     width: 100%;
     height: 100%;
@@ -34,7 +34,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, rgba(2, 0, 36, 0.4) 0%, rgba(33, 53, 71, 0.1) 50%, rgba(0, 213, 255, 0) 100%);
+    background: linear-gradient(0deg, rgba(2, 0, 36, 0.35) 0%, rgba(33, 53, 71, .1) 30%, rgba(0, 213, 255, 0) 100%);
     position: absolute;
     z-index: 2;
     opacity: .5;

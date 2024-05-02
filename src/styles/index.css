@@ -58,7 +58,8 @@ button,
   font-weight: 500;
   font-family: inherit;
   color: white;
-  background-color: #6ba9db;
+  background-color: #213446;
+  /* background-color: #6ba9db; */
   cursor: pointer;
   transition: background-color 0.25s;
 }
