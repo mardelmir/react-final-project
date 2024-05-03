@@ -22,9 +22,8 @@
     margin-left: 5px;
 }
 
-input {
+.filterField input {
     width: auto !important;
-
 }
 
 .listSizes {
@@ -33,4 +32,8 @@ input {
     height: 200px;
     flex-wrap: wrap;
     column-gap: 20px;
+}
+
+fieldset.price input{
+    width: 100px;
 }
