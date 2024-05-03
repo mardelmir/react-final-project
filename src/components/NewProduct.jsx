@@ -3,43 +3,33 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { formatPayload } from '../utils/formatPayload';
-import { firebaseApp } from '../config/firebase';
-import { getStorage, ref, uploadBytes } from 'firebase/storage'
+
 
 function NewProduct() {
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null)
     const sizesList = ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49']
-    const { register, handleSubmit, getValues } = useForm()
-    const storage = getStorage(firebaseApp)
+    const { register, getValues } = useForm()
 
-    const onSubmit = data => {
-        console.log(data)
-        const fileRef = ref(storage, data.img[0].name) // Nombre de la referencia
-        uploadBytes(fileRef, file)
-        //fileRef.put(data.image[0]).then(() => { console.log('Uploaded file') })
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const values = getValues()
+        const { payload, error } = formatPayload(values)
+
+        if (!error) {
+            // Send payload to database
+            const urlPost = 'http://localhost:8080/api/v1/admin/'
+            try {
+                await fetch(urlPost, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                })
+                navigate('/')
+            }
+            catch (error) { console.log(error) }
+        } else { setError(error) }
     }
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault()
-
-    //     const values = getValues()
-    //     const { payload, error } = formatPayload(values)
-    //     console.log(payload)
-
-    //     if (!error) {
-    // Send payload to database
-    // const urlPost = 'http://localhost:8080/api/v1/admin/'
-    // try {
-    //     await fetch(urlPost, {
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(payload)
-    //     })
-    //     navigate('/')
-    // }
-    // catch (error) { console.log(error) }
-    //     } else { setError(error) }
-    // }
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
@@ -48,7 +38,7 @@ function NewProduct() {
     return (
         <div className='form-container'>
             <h2>Add new product</h2>
-            <form className='form' onSubmit={handleSubmit(onSubmit)}>
+            <form className='form' onSubmit={handleSubmit}>
                 <label htmlFor='name'>Name</label>
                 <input {...register('name')} required />
 
@@ -59,23 +49,7 @@ function NewProduct() {
                 <input type='number' step='0.01' {...register('price')} required />
 
                 <label htmlFor='img'>Image</label>
-                <div className='img-container'>
-                    {/* <div className='image'>
-                        <div
-                            className={`custom-upload ${!file ? '' : 'file'}`}
-                            onClick={() => img.click()}>
-                            {file ? file.name : 'Add new image'}
-                        </div>
-                    </div> */}
-                    <input
-                        type='file'
-                        {...register('img')}
-                        id='img'
-                        accept='image/*'
-                        // style={{ display: 'none' }}
-                        onChange={handleFileChange}
-                    />
-                </div>
+                <input {...register('img')} placeholder='url' required />
 
                 <label>Category</label>
                 <div className='category-container'>
@@ -103,9 +77,9 @@ function NewProduct() {
 
                 <h3>{error}</h3>
                 <div className='btn-container'>
-                    <button className='formBtn' type='submit'>Create</button>
-                    <button className='formBtn' type='reset'>Reset form</button>
-                    <Link to='/'><button>Cancel</button></Link>
+                    <button className='btn' type='submit'>Create</button>
+                    <button className='btn' type='reset'>Reset form</button>
+                    <Link to='/'><button className='btn'>Cancel</button></Link>
                 </div>
             </form >
         </div >

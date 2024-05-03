@@ -65,7 +65,7 @@
     margin-top: 5px;
 }
 
-.size-container{
+.size-container {
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
@@ -78,7 +78,8 @@
     gap: 20px;
 }
 
-.size input, .img {
+.size input,
+.img {
     width: 100px;
 }
 
@@ -92,7 +93,7 @@
     transition: background-color .25s linear;
 }
 
-.custom-upload:hover{
+.custom-upload:hover {
     background-color: steelblue;
 }
 
@@ -114,7 +115,16 @@
 }
 
 @media(prefers-color-scheme: dark) {
+    .form-container h2 {
+        color: white;
+    }
+
     .form {
-        background-color: rgb(37, 67, 93);
+        background-color: #213446;
+        color: white;
+    }
+
+    .form .btn {
+        background-color: #92a0ac;
     }
 }
