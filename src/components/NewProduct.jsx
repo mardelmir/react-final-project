@@ -4,17 +4,20 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { formatPayload } from '../utils/formatPayload';
 import { firebaseApp } from '../config/firebase';
+import { getStorage, ref, uploadBytes } from 'firebase/storage'
 
 function NewProduct() {
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null)
     const sizesList = ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49']
     const { register, handleSubmit, getValues } = useForm()
+    const storage = getStorage(firebaseApp)
 
     const onSubmit = data => {
-        // const storageRef = firebaseApp.storage().ref()
-        // const fileRef = storageRef.child(data.image[0].name)
-        // fileRef.put(data.image[0]).then(() => { console.log('Uploaded file') })
+        console.log(data)
+        const fileRef = ref(storage, data.img[0].name) // Nombre de la referencia
+        uploadBytes(fileRef, file)
+        //fileRef.put(data.image[0]).then(() => { console.log('Uploaded file') })
     }
     // const handleSubmit = async (e) => {
     //     e.preventDefault()
@@ -39,8 +42,7 @@ function NewProduct() {
     // }
 
     const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        setFile(file);
+        setFile(e.target.files[0]);
     };
 
     return (
@@ -58,19 +60,19 @@ function NewProduct() {
 
                 <label htmlFor='img'>Image</label>
                 <div className='img-container'>
-                    <div className='image'>
+                    {/* <div className='image'>
                         <div
                             className={`custom-upload ${!file ? '' : 'file'}`}
                             onClick={() => img.click()}>
                             {file ? file.name : 'Add new image'}
                         </div>
-                    </div>
+                    </div> */}
                     <input
                         type='file'
                         {...register('img')}
                         id='img'
                         accept='image/*'
-                        style={{ display: 'none' }}
+                        // style={{ display: 'none' }}
                         onChange={handleFileChange}
                     />
                 </div>
