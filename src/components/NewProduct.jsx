@@ -3,42 +3,50 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { formatPayload } from '../utils/formatPayload';
+// import { firebaseApp } from '../config/firebase';
 
 function NewProduct() {
-    const [selectedFile, setSelectedFile] = useState(null);
+    const [file, setFile] = useState(null);
     const [error, setError] = useState(null)
     const sizesList = ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49']
-    const { register, getValues } = useForm()
+    const { register, handleSubmit, getValues } = useForm()
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        const values = getValues()
-        const { payload, error } = formatPayload(values)
-        console.log(payload)
-        if (error) setError(error)
-
-        // Send payload to database
-        //     const urlPost = 'http://localhost:8080/api/v1/admin/'
-        //     try {
-        //         await fetch(urlPost, {
-        //             method: 'POST',
-        //             headers: { 'Content-Type': 'application/json' },
-        //             body: JSON.stringify(payload)
-        //         })
-        //         navigate('/')
-        //     }
-        //     catch (error) { console.log(error) }
+    const onSubmit = data => {
+        // const storageRef = firebaseApp.storage().ref()
+        // const fileRef = storageRef.child(data.image[0].name)
+        // fileRef.put(data.image[0]).then(() => { console.log('Uploaded file') })
     }
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault()
+
+    //     const values = getValues()
+    //     const { payload, error } = formatPayload(values)
+    //     console.log(payload)
+
+    //     if (!error) {
+    // Send payload to database
+    // const urlPost = 'http://localhost:8080/api/v1/admin/'
+    // try {
+    //     await fetch(urlPost, {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(payload)
+    //     })
+    //     navigate('/')
+    // }
+    // catch (error) { console.log(error) }
+    //     } else { setError(error) }
+    // }
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
-        setSelectedFile(file);
+        setFile(file);
     };
 
     return (
         <div className='form-container'>
             <h2>Add new product</h2>
-            <form className='form' onSubmit={handleSubmit} >
+            <form className='form' onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor='name'>Name</label>
                 <input {...register('name')} required />
 
@@ -52,9 +60,9 @@ function NewProduct() {
                 <div className='img-container'>
                     <div className='image'>
                         <div
-                            className={`custom-upload ${!selectedFile ? '' : 'file'}`}
+                            className={`custom-upload ${!file ? '' : 'file'}`}
                             onClick={() => img.click()}>
-                            {selectedFile ? selectedFile.name : 'Add new image'}
+                            {file ? file.name : 'Add new image'}
                         </div>
                     </div>
                     <input

@@ -22,7 +22,7 @@ const App = () => {
         <CurrentUserProvider>
             <Router>
                 <div className={`App ${theme}`}>
-                    <Header />
+                    <Header theme={theme}/>
                     <main>
                         <Routes>
                             <Route path='/' element={<Home />} />

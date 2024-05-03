@@ -9,11 +9,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* body {
+body {
   margin: 0;
   min-width: 100vw;
   min-height: 100vh;
-} */
+}
 
 main {
   box-sizing: border-box;
@@ -21,6 +21,7 @@ main {
   min-width: 100vw;
   padding-top: 132px;
   /* margin-top: 132px; */
+  transition: background-color 0.7s ease;
 }
 
 h1 {
@@ -69,6 +70,6 @@ button:hover,
 /* Dark Mode */
 
 .dark main {
-  background-color: #213547;
+  background-color: #3f5162;
   transition: background-color 0.7s ease;
 }

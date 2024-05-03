@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useCurrentUser } from '../storage/CurrentUserContext.jsx'
 import DarkButton from './DarkButton.jsx'
 
-function Header() {
+function Header({theme}) {
     const { currentUser, setCurrentUser } = useCurrentUser()
     const navigate = useNavigate()
 
@@ -24,7 +24,7 @@ function Header() {
             <nav className='nav'>
                 <div>
                     <Link to='/'>
-                        <img className='logo' src="/images/logo.png" alt="logo" />
+                        <img className='logo' src={theme === "light" ? "/images/logo.png" : "/images/logoDark.png"} alt="logo" />
                     </Link>
                 </div>
                 <Link to='/'>Home</Link>

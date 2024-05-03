@@ -3,8 +3,34 @@
     flex-direction: column;
     align-items: flex-start;
     width: 150px;
+    padding-left: 15px;
+    color: #213446;
+    /* border-color: #213446; */
+}
+
+.filter fieldset {
+    display: flex;
+    border: .5px solid #213446;
+    border-radius: 5px;
+    flex-wrap: wrap;
+}
+
+
+.filterField {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5px;
 }
 
 input {
-    width: 100px;
+    width: auto !important;
+
+}
+
+.listSizes {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    flex-wrap: wrap;
+    column-gap: 20px;
 }

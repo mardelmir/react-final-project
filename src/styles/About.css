@@ -3,13 +3,23 @@
     box-sizing: border-box;
     width: 100%;
     height: 100%;
+    padding: 50px;
 }
 
 .about-text {
     text-align: center;
+    color: #213446;
+    padding: 40px
+}
+
+.about-text p {
+    padding: 0px 50px;
 }
 
 .about-img {
     display: flex;
-    flex-direction: column;
 }
+.about-img img {
+    width: 500px;
+}
+

@@ -22,24 +22,29 @@ function Filter({ filter, setFilter }) {
         <div className='filter'>
             <fieldset className="filter gender">
                 <legend>Gender</legend>
-                <label htmlFor="Man">Man</label>
-                <input
-                    type="checkbox"
-                    id="Man"
-                    name="Man"
-                    onChange={onChangeHandler} />
-                <label htmlFor="Woman">Woman</label>
-                <input
-                    type="checkbox"
-                    id="Woman"
-                    name="Woman"
-                    onChange={onChangeHandler} />
+                <div className='filterField'>
+                    <label htmlFor="Man">Man</label>
+                    <input
+                        type="checkbox"
+                        id="Man"
+                        name="Man"
+                        onChange={onChangeHandler} />
+                </div>
+                <div className='filterField'>
+                    <label htmlFor="Woman">Woman</label>
+                    <input
+                        type="checkbox"
+                        id="Woman"
+                        name="Woman"
+                        onChange={onChangeHandler} />
+                </div>
             </fieldset>
 
             <fieldset className="filter size">
                 <legend>Size</legend>
+                <div className='listSizes'>
                 {sizesList.map(size => (
-                    <div key={size}>
+                    <div key={size} className='filterField'>
                         <label htmlFor={size}>{size}</label>
                         <input
                             type="checkbox"
@@ -48,22 +53,27 @@ function Filter({ filter, setFilter }) {
                             onChange={onChangeHandler} />
                     </div>
                 ))}
+                </div>
             </fieldset>
 
             <fieldset className="filter use">
                 <legend>Use</legend>
+                <div className='filterField'>
                 <label htmlFor="Lifestyle">Lifestyle</label>
                 <input
                     type="checkbox"
                     id="Lifestyle"
                     name="Lifestyle"
                     onChange={onChangeHandler} />
+                </div>
+                <div className='filterField'>
                 <label htmlFor="Performance">Performance</label>
                 <input
                     type="checkbox"
                     id="Performance"
                     name="Performance"
                     onChange={onChangeHandler} />
+                </div>
             </fieldset>
             <fieldset className="filter price">
                 <legend>Price</legend>
