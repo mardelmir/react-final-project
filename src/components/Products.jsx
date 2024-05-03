@@ -5,16 +5,11 @@ import useFetchData from '../hooks/useFetchData.js';
 import useFilterProducts from '../hooks/useFilterProducts.js';
 import Filter from './Filter.jsx';
 
-import { useTheme } from '../storage/ThemeContext.jsx'
-
-
 function Products() {
     const [filter, setFilter] = useState({ gender: [], size: [], minPrice: 0, maxPrice: 0, use: [] })
     const urlApi = 'http://localhost:8080/api/v1/products';
     const { data, loading } = useFetchData(urlApi)
     const { displayedProducts } = useFilterProducts(data, loading, filter)
-
-    const { theme, toggleTheme } = useTheme()
 
     return (
         <>

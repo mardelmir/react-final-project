@@ -87,10 +87,10 @@ function Home() {
                 <h2>OUR BRANDS</h2>
                 <div className='carrusel-brands-container'>
                     <a href="https://www.vivobarefoot.com/eu/">
-                        <img src="public/images/vivobarefoot2.png" alt="vivobarefoot"/>
+                        <img src="/images/vivobarefoot2.png" alt="vivobarefoot"/>
                     </a>
                     <a href="https://www.vibram.com/us">
-                        <img src="public/images/vibram.png" alt="vibram" />
+                        <img src="/images/vibram.png" alt="vibram" />
                     </a>
                 </div>
             </section>
