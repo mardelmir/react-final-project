@@ -1,13 +1,13 @@
-// import * as firebase from 'firebase/app'
-// import 'firebase/storage'
+import { initializeApp } from 'firebase/app'
+import 'firebase/storage'
 
-// const firebaseConfig = {
-//     // apiKey: process.env.APIKEY,
-//     // authDomain: process.env.AUTHDOMAIN,
-//     // projectId: process.env.PROJECTID,
-//     // storageBucket: process.env.STORAGEBUCKET,
-//     // messagingSenderId: process.env.MESSAGINGSENDERID,
-//     // appId: process.env.APPID
-// }
+const firebaseConfig = {
+    apiKey: import.meta.env.APIKEY,
+    authDomain: import.meta.env.AUTHDOMAIN,
+    projectId: import.meta.env.PROJECTID,
+    storageBucket: import.meta.env.STORAGEBUCKET,
+    messagingSenderId: import.meta.env.MESSAGINGSENDERID,
+    appId: import.meta.env.APPID
+}
 
-// export const firebaseApp = firebase(firebaseConfig);
+export const firebaseApp = initializeApp(firebaseConfig);

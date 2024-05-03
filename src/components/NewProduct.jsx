@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { formatPayload } from '../utils/formatPayload';
-// import { firebaseApp } from '../config/firebase';
+import { firebaseApp } from '../config/firebase';
 
 function NewProduct() {
     const [file, setFile] = useState(null);
