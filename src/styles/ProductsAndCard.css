@@ -5,6 +5,7 @@
 
 .h1-products h1 {
     color: #213446;
+    transition: color 0.7s ease;
 }
 
 .products-container,
@@ -109,6 +110,11 @@ legend {
 
 
 
+/**dark mode*/
+.dark .h1-products h1 {
+    color: #f8f8f8;
+    transition: color 0.7s ease;
+}
 
 
 

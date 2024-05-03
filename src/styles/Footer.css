@@ -9,13 +9,17 @@ width: 100%;
 background-color: #f8f8f8; 
 padding: 20px; 
 box-sizing: border-box;
+transition: color 0.7s ease;
+transition: background-color 0.7s ease;
 /* position: fixed; */
 }
 
 .dark .div-footer {
     background-color: #213547;
+    transition: background-color 0.7s ease;
 }
 
 .dark .div-footer p {
-    color: #f8f8f8
+    color: #f8f8f8;
+    transition: color 0.7s ease;
 }

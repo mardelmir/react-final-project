@@ -1,5 +1,6 @@
 .about-container {
     display: flex;
+    justify-content: center;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
@@ -9,17 +10,38 @@
 .about-text {
     text-align: center;
     color: #213446;
-    padding: 40px
+    padding: 40px;
+    transition: color 0.7s ease;
 }
-
+.about-text h1{
+    margin-left: 200px;
+    transition: color 0.7s ease;
+}
 .about-text p {
-    padding: 0px 50px;
+    transition: color 0.7s ease;
+    text-align: justify;
 }
 
 .about-img {
-    display: flex;
+    width: 1000px;
+    margin: auto;
 }
 .about-img img {
-    width: 500px;
+    width: 250px;
+    float: left;
+    margin-right: 25px;
+}
+figcaption{
+    text-align: center;
 }
 
+/*---Dark Mode---*/
+.dark .about-container h1 {
+    color: #f8f8f8;
+    transition: color 0.7s ease;
+}
+
+.dark .about-container p {
+    color: #f8f8f8;
+    transition: color 0.7s ease;
+}

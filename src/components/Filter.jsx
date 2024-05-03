@@ -5,7 +5,7 @@ function Filter({ filter, setFilter }) {
 
     const onChangeHandler = (e) => {
         // We select the class of the parent (or the grandparent)
-        const category = e.target.parentElement.classList[1] || e.target.parentElement.parentElement.classList[1]
+        const category = e.target.parentElement.parentElement.classList[1] || e.target.parentElement.parentElement.parentElement.classList[1]
         // If we checked a box, add it to the filter
         if (e.target.checked) {
             setFilter({ ...filter, [category]: [...filter[category], e.target.name] })
