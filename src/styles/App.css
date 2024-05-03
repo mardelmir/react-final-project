@@ -21,3 +21,8 @@
     width: 100%;
     margin-top: 15px;
 }
+
+/*dark mode*/
+div.dark {
+    background-color: #3f5162 ;
+}

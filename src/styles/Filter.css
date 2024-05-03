@@ -5,6 +5,7 @@
     width: 150px;
     padding-left: 15px;
     color: #213446;
+    transition: color 0.7s ease;
     /* border-color: #213446; */
 }
 
@@ -36,4 +37,20 @@
 
 fieldset.price input{
     width: 100px;
+}
+
+/*---*/
+.dark .filter {
+    color: #f8f8f8;
+    transition: color 0.7s ease;
+}
+
+.dark .filter fieldset {
+    border: .5px solid #f8f8f8;
+    transition: border 0.7s ease;
+}
+
+.dark .filter legend {
+    color: #f8f8f8;
+    transition: color 0.7s ease;
 }

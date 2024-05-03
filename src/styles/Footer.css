@@ -12,3 +12,10 @@ box-sizing: border-box;
 /* position: fixed; */
 }
 
+.dark .div-footer {
+    background-color: #213547;
+}
+
+.dark .div-footer p {
+    color: #f8f8f8
+}
