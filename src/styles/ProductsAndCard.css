@@ -3,6 +3,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    /* box-sizing: border-box;
+    width: 100%; */
     gap: 20px;
     margin: 20px;
     padding-bottom: 20px;

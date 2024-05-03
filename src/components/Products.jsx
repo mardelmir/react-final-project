@@ -23,6 +23,7 @@ function Products() {
                             <h3>{product.name}</h3>
                             <img src={product.img} alt={product.name} />
                             <p><span>Price</span>: {product.price}€</p>
+                            
                             <div className='btn-container'>
                                 <Link to={`/products/${product._id}`}><button>Detail</button></Link>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="star" width="44"

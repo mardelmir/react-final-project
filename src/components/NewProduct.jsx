@@ -4,44 +4,30 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { formatPayload } from '../utils/formatPayload';
 
-
 function NewProduct() {
     const [selectedFile, setSelectedFile] = useState(null);
+    const [error, setError] = useState(null)
     const sizesList = ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49']
     const { register, getValues } = useForm()
-
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         const values = getValues()
-
         const { payload, error } = formatPayload(values)
         console.log(payload)
-        console.log(error)
-
-        // // Create payload following backend Product model
-        // let values = getValues()
-        // const sizes = getValues('size')
-        // const cleanSizes = []
-        // for (let i in sizes) {
-        //     if (sizes[i] !== '') cleanSizes.push([i, sizes[i]])
-        // }
-
-        // values.size = Object.fromEntries(cleanSizes)
-        // const payload = values
-        // console.log(payload)
+        if (error) setError(error)
 
         // Send payload to database
-        // const urlPost = 'http://localhost:8080/api/v1/admin/'
-        // try {
-        //     await fetch(urlPost, {
-        //         method: 'POST',
-        //         headers: { 'Content-Type': 'application/json' },
-        //         body: JSON.stringify(payload)
-        //     })
-        //     navigate('/')
-        // }
-        // catch (error) { console.log(error) }
+        //     const urlPost = 'http://localhost:8080/api/v1/admin/'
+        //     try {
+        //         await fetch(urlPost, {
+        //             method: 'POST',
+        //             headers: { 'Content-Type': 'application/json' },
+        //             body: JSON.stringify(payload)
+        //         })
+        //         navigate('/')
+        //     }
+        //     catch (error) { console.log(error) }
     }
 
     const handleFileChange = (e) => {
@@ -62,22 +48,22 @@ function NewProduct() {
                 <label htmlFor='price'>Price (€)</label>
                 <input type='number' step='0.01' {...register('price')} required />
 
-                <div className='option-container'>
-                    <label htmlFor='img'>Image</label>
-                    {/* <div className='image'>
+                <label htmlFor='img'>Image</label>
+                <div className='img-container'>
+                    <div className='image'>
                         <div
                             className={`custom-upload ${!selectedFile ? '' : 'file'}`}
                             onClick={() => img.click()}>
-                            {selectedFile ? selectedFile.name : '+'}
+                            {selectedFile ? selectedFile.name : 'Add new image'}
                         </div>
-                    </div> */}
+                    </div>
                     <input
                         type='file'
+                        {...register('img')}
                         id='img'
-                        name='img'
                         accept='image/*'
-                    // style={{ display: 'none' }}
-                    // onChange={handleFileChange} 
+                        style={{ display: 'none' }}
+                        onChange={handleFileChange}
                     />
                 </div>
 
@@ -105,6 +91,7 @@ function NewProduct() {
                     )}
                 </div>
 
+                <h3>{error}</h3>
                 <div className='btn-container'>
                     <button className='formBtn' type='submit'>Create</button>
                     <button className='formBtn' type='reset'>Reset form</button>

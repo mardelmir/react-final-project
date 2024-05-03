@@ -9,17 +9,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+/* body {
   margin: 0;
   min-width: 100vw;
   min-height: 100vh;
-}
+} */
 
 main {
   box-sizing: border-box;
   min-height: 100vh;
   min-width: 100vw;
-  margin-top: 130px;
+  padding-top: 132px;
+  /* margin-top: 132px; */
 }
 
 h1 {

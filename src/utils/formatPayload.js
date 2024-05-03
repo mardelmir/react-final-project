@@ -1,6 +1,7 @@
 export const formatPayload = (values) => {
-    // Create payload following backend Product model
-    let error = ''
+
+    // Create payload following backend Product model (size adaptation)
+    let error = null
     let payload = ''
 
     const sizes = values.size
