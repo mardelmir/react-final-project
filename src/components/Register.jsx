@@ -53,8 +53,8 @@ function Register() {
 
                 {/* <div className='warning'></div> */}
                 <div className='btn-container'>
-                    <button type='submit'>Sign Up</button>
-                    <Link to='/'><button>Go back</button></Link>
+                    <button className='btn 'type='submit'>Sign Up</button>
+                    <Link to='/'><button className='btn'>Go back</button></Link>
                 </div>
             </form>
         </div>

@@ -49,8 +49,8 @@ function Login() {
 
                 <div className='warning'></div>
                 <div className='btn-container'>
-                    <button className='formBtn' type='submit'>Log In</button>
-                    <Link to='/'><button>Go back</button></Link>
+                    <button className='btn' type='submit'>Log In</button>
+                    <Link to='/'><button className='btn'>Go back</button></Link>
                 </div>
             </form>
         </div>
