@@ -12,7 +12,6 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const urlPost = `${import.meta.env.VITE_APP_API_URL}login`
-        //const urlPost = 'http://localhost:8080/api/v1/login'
         const payload = { email, password }
 
         try {
