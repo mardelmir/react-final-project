@@ -14,7 +14,6 @@ function UpdateProduct() {
 
     const onSubmit = async (data) => {
         const { payload } = formatPayload(data)
-        // Send payload to database
         const urlPost = `http://localhost:8080/api/v1/admin/${productId}`
         try {
             await fetch(urlPost, {
