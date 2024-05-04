@@ -4,6 +4,8 @@
 En un mundo donde la comodidad y el estilo van de la mano, creemos firmemente en la importancia del calzado minimalista para una vida activa y saludable. Con una combinación de habilidades en programación y una pasión compartida por el diseño, hemos creado On Ground Footwear como una plataforma para ofrecer productos que no solo cuidan de tus pies, sino también del medio ambiente.
 ¡Únete a nosotros en este viaje hacia la comodidad consciente y el estilo sostenible con On Ground Footwear!
 ## Estructura del proyecto
+La aplicación 'Tienda de zapatilas minimalistas On Ground Footwear' posee la siguiente estructura de archivos: 
+
 on-ground-footwear/
 ├── public/
 │   └── ...
