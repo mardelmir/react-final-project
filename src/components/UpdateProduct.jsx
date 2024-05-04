@@ -1,14 +1,16 @@
 import '../styles/Form.css'
 import { useForm } from 'react-hook-form';
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { formatPayload } from '../utils/formatPayload';
 
-function NewProduct() {
+function UpdateProduct() {
     const [error, setError] = useState(null)
     const { register, handleSubmit, } = useForm()
     const navigate = useNavigate()
     const sizesList = ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49']
+
+    const id = useParams().id
 
     const onSubmit = async (data) => {
         const { payload, error } = formatPayload(data)
@@ -17,7 +19,7 @@ function NewProduct() {
             const urlPost = 'http://localhost:8080/api/v1/admin/'
             try {
                 await fetch(urlPost, {
-                    method: 'POST',
+                    method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 })
@@ -29,28 +31,28 @@ function NewProduct() {
 
     return (
         <div className='form-container'>
-            <h2>Add new product</h2>
+            <h2>Update product</h2>
             <form className='form' onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor='name'>Name</label>
-                <input {...register('name')} required />
+                <input {...register('name')} />
 
                 <label htmlFor='description'>Description</label>
-                <textarea {...register('description')} required></textarea>
+                <textarea {...register('description')}></textarea>
 
                 <label htmlFor='price'>Price (€)</label>
-                <input type='number' step='0.01' min='0' {...register('price')} required />
+                <input type='number' step='0.01' min='0' {...register('price')} />
 
                 <label htmlFor='img'>Image</label>
-                <input {...register('img')} placeholder='url' required />
+                <input {...register('img')} placeholder='url' />
 
                 <label>Category</label>
                 <div className='category-container'>
-                    <select {...register('category.gender')} required>
+                    <select {...register('category.gender')}>
                         <option value='' hidden>Gender</option>
                         <option value='Man' name='Man'>Man</option>
                         <option value='Woman' name='Woman'>Woman</option>
                     </select>
-                    <select {...register('category.use')} required>
+                    <select {...register('category.use')}>
                         <option value='' hidden>Use</option>
                         <option value='Lifestyle' name='Lifestyle'>Lifestyle</option>
                         <option value='Performance' name='Performance'>Performance</option>
@@ -69,13 +71,13 @@ function NewProduct() {
 
                 <h3>{error}</h3>
                 <div className='btn-container'>
-                    <button className='btn' type='submit'>Create</button>
+                    <button className='btn' type='submit'>Update</button>
                     <button className='btn' type='reset'>Reset form</button>
-                    <Link to='/products'><button className='btn'>Cancel</button></Link>
+                    <Link to={`/products/${id}`}><button className='btn'>Cancel</button></Link>
                 </div>
             </form >
         </div >
     )
 }
 
-export default NewProduct
+export default UpdateProduct

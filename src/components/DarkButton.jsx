@@ -12,8 +12,8 @@ function DarkButton() {
                 <div className="containerDarkMode">
                     <div className="circle">
                         <div className="images">
-                            <img className="moon" src="./src/assets/images/moon.png" />
-                            <img className="sun" src="./src/assets/images/sun.png" />
+                            <img className="moon" src="./icons/moon.png" />
+                            <img className="sun" src="./icons/sun.png" />
                         </div>
                     </div>
                 </div>

@@ -13,6 +13,7 @@ import Card from './components/Card.jsx'
 import Cart from './components/Cart.jsx';
 import About from './components/About.jsx';
 import NewProduct from './components/NewProduct.jsx';
+import UpdateProduct from './components/UpdateProduct.jsx';
 
 const App = () => {
     const {theme} = useTheme()
@@ -32,6 +33,7 @@ const App = () => {
                             <Route path='/about' element={<About />} />
                             <Route path='/register' element={<Register />} />
                             <Route path='/products/:id' element={<Card />} />
+                            <Route path='/products/:id/update' element={<UpdateProduct />} />
                             <Route path='/new' element={<NewProduct />} />
                         </Routes>
                     </main>
