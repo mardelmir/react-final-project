@@ -14,7 +14,7 @@ function NewProduct() {
         const { payload, error } = formatPayload(data)
         if (!error) {
             // Send payload to database
-            const urlPost = 'http://localhost:8080/api/v1/admin/'
+            const urlPost = `${import.meta.env.VITE_APP_API_URL}admin`
             try {
                 await fetch(urlPost, {
                     method: 'POST',

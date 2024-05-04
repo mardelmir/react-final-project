@@ -14,7 +14,7 @@ function UpdateProduct() {
 
     const onSubmit = async (data) => {
         const { payload } = formatPayload(data)
-        const urlPost = `http://localhost:8080/api/v1/admin/${productId}`
+        const urlPost=`${import.meta.env.VITE_APP_API_URL}admin/${productId}`
         try {
             await fetch(urlPost, {
                 method: 'PUT',

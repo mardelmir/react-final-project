@@ -48,10 +48,6 @@ function Register() {
                     onChange={e => setPassword(e.target.value)}
                     required />
 
-                <label htmlFor='role'>Administrador</label>
-                <input type='checkbox' name='role' onClick={e => setRole('on')} />
-
-                {/* <div className='warning'></div> */}
                 <div className='btn-container'>
                     <button className='btn 'type='submit'>Sign Up</button>
                     <Link to='/'><button className='btn'>Go back</button></Link>
