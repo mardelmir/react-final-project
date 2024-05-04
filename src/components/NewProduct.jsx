@@ -9,31 +9,27 @@ function NewProduct() {
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null)
     const sizesList = ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49']
-    const { register, getValues } = useForm()
+    const { register, getValues, handleSubmit,  } = useForm()
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        const values = getValues()
-        const { payload, error } = formatPayload(values)
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault()
+    //     const values = getValues()
+    //     const { payload, error } = formatPayload(values)
 
-        if (!error) {
-            // Send payload to database
-            const urlPost = 'http://localhost:8080/api/v1/admin/'
-            try {
-                await fetch(urlPost, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                })
-                navigate('/')
-            }
-            catch (error) { console.log(error) }
-        } else { setError(error) }
-    }
-
-    const handleFileChange = (e) => {
-        setFile(e.target.files[0]);
-    };
+    //     if (!error) {
+    //         // Send payload to database
+    //         const urlPost = 'http://localhost:8080/api/v1/admin/'
+    //         try {
+    //             await fetch(urlPost, {
+    //                 method: 'POST',
+    //                 headers: { 'Content-Type': 'application/json' },
+    //                 body: JSON.stringify(payload)
+    //             })
+    //             navigate('/')
+    //         }
+    //         catch (error) { console.log(error) }
+    //     } else { setError(error) }
+    // }
 
     return (
         <div className='form-container'>
