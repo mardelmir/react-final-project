@@ -10,23 +10,25 @@ function UpdateProduct() {
     const navigate = useNavigate()
     const sizesList = ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49']
 
-    const id = useParams().id
+    const productId = useParams().id
 
     const onSubmit = async (data) => {
-        const { payload, error } = formatPayload(data)
-        if (!error) {
-            // Send payload to database
-            const urlPost = 'http://localhost:8080/api/v1/admin/'
-            try {
-                await fetch(urlPost, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                })
-                navigate('/products')
-            }
-            catch (error) { console.log(error) }
-        } else { setError(error) }
+        const { payload } = formatPayload(data)
+        // Send payload to database
+        const urlPost = `http://localhost:8080/api/v1/admin/${productId}`
+        try {
+            await fetch(urlPost, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            navigate(`/products/${productId}`)
+        }
+        catch (error) {
+            console.log(error)
+            setError(error)
+        }
+
     }
 
     return (
@@ -73,7 +75,7 @@ function UpdateProduct() {
                 <div className='btn-container'>
                     <button className='btn' type='submit'>Update</button>
                     <button className='btn' type='reset'>Reset form</button>
-                    <Link to={`/products/${id}`}><button className='btn'>Cancel</button></Link>
+                    <Link to={`/products/${productId}`}><button className='btn'>Cancel</button></Link>
                 </div>
             </form >
         </div >

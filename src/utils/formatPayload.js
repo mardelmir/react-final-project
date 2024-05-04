@@ -5,17 +5,15 @@ export const formatPayload = (values) => {
     let payload = ''
 
     const sizes = values.size
-    const cleanSizes = []
+    const trimmedSizes = []
     for (let i in sizes) {
-        if (sizes[i] !== '' && sizes[i] !== 0) cleanSizes.push([i, sizes[i]])
+        if (sizes[i] !== '' && sizes[i] !== 0) trimmedSizes.push([i, sizes[i]])
     }
 
-    if (cleanSizes.length === 0) {
-        error = 'Cannot send form without sizes'
-    } else {
-        values.size = Object.fromEntries(cleanSizes)
-        payload = values
-    }
+    if (trimmedSizes.length === 0) { error = 'Cannot send form without sizes' }
+
+    values.size = Object.fromEntries(trimmedSizes)
+    payload = values
 
     return { payload, error }
 }

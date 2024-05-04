@@ -23,6 +23,7 @@ function Card() {
                         <img src={product.img} alt={product.name} />
                         <div className='detail'>
                             <h2>{product.name}</h2>
+                            <p><span>Description</span>: {product.description}</p>
                             <p><span>Gender</span>: {product.category.gender}</p>
                             <p><span>Use</span>: {product.category.use}</p>
                             {/* <p><span>Size</span>: {product.size}</p> */}
