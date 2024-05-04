@@ -27,7 +27,6 @@ function UpdateProduct() {
             console.log(error)
             setError(error)
         }
-
     }
 
     return (
