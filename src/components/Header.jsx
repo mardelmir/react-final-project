@@ -33,6 +33,7 @@ function Header({theme}) {
             </nav>
 
             <div className='search-container'>
+                
                 <img src='./src/assets/images/glass.svg' alt='glass' className='glass' />
                 <input className='searchBar' type='text' />
                 <button>Search</button>

@@ -5,7 +5,7 @@ En un mundo donde la comodidad y el estilo van de la mano, creemos firmemente en
 ¡Únete a nosotros en este viaje hacia la comodidad consciente y el estilo sostenible con On Ground Footwear!
 ## Estructura del proyecto
 La aplicación 'Tienda de zapatilas minimalistas On Ground Footwear' posee la siguiente estructura de archivos: 
-
+```
 on-ground-footwear/
 ├── public/
 │   └── ...
@@ -56,6 +56,7 @@ on-ground-footwear/
 ├── README.md
 ├── package.json
 └── ...
+```
 
 ## Funcinoalidades
 * Explora nuestra colección de zapatillas minimalistas desde la página  **Products**.
