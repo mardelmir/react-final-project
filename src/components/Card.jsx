@@ -1,5 +1,6 @@
 import '../styles/ProductsAndCard.css'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useCurrentUser } from '../storage/CurrentUserContext.jsx'
 import useFetchData from '../hooks/useFetchData'
 
 function Card() {
@@ -7,6 +8,7 @@ function Card() {
     const urlApi = `http://localhost:8080/api/v1/products/${productId}`;
     const { data: product, loading } = useFetchData(urlApi)
     const navigate = useNavigate()
+    const { currentUser } = useCurrentUser()
 
     const deleteProduct = async (productId) => {
         const urlDelete = `http://localhost:8080/api/v1/admin/${productId}/delete`
@@ -36,8 +38,12 @@ function Card() {
                             </svg>
                             <div className='btn-container'>
                                 <Link to='/products'><button>Go back</button></Link>
-                                <Link to={`/products/${product._id}/update`}><button>Update</button></Link>
-                                <button onClick={() => deleteProduct(product._id)}>Delete</button>
+                                {currentUser && currentUser.role === 'admin' && (
+                                    <>
+                                        <Link to={`/products/${product._id}/update`}><button>Update</button></Link>
+                                        <button onClick={() => deleteProduct(product._id)}>Delete</button>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>
