@@ -12,7 +12,8 @@ function Register() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const urlPost = `${import.meta.env.VITE_APP_API_URL}register`
+        // const urlPost = `${import.meta.env.VITE_APP_API_URL}register`
+        const urlPost = 'http://localhost:8080/register'
         const payload = { email, password, role }
 
         try {

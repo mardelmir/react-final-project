@@ -7,7 +7,8 @@ import Filter from './Filter.jsx';
 
 function Products() {
     const [filter, setFilter] = useState({ gender: [], size: [], minPrice: 0, maxPrice: 0, use: [] })
-    const urlApi = import.meta.env.VITE_APP_API_URL + 'products'
+    // const urlApi = `${import.meta.env.VITE_APP_API_URL}products`
+    const urlApi = 'http://localhost:8080/products'
     const { data, loading } = useFetchData(urlApi)
     const { displayedProducts } = useFilterProducts(data, loading, filter)
 

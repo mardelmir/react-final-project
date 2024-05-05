@@ -17,7 +17,6 @@ import UpdateProduct from './components/UpdateProduct.jsx';
 
 const App = () => {
     const {theme} = useTheme()
-    //const apiUrl = import.meta.env.VITE_APP_API_URL
 
     return (
         <CurrentUserProvider>

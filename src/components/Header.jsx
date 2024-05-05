@@ -9,7 +9,8 @@ function Header({ theme }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const urlPost = `${import.meta.env.VITE_APP_API_URL}logout`
+        // const urlPost = `${import.meta.env.VITE_APP_API_URL}logout`
+        const urlPost = 'http://localhost8080/}logout'
 
         try {
             await fetch(urlPost, { method: 'POST' })
