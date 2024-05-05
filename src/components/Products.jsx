@@ -1,5 +1,5 @@
 import '../styles/ProductsAndCard.css'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import useFetchData from '../hooks/useFetchData.js';
 import useFilterProducts from '../hooks/useFilterProducts.js';
@@ -7,9 +7,12 @@ import Filter from './Filter.jsx';
 
 function Products() {
     const [filter, setFilter] = useState({ gender: [], size: [], minPrice: 0, maxPrice: 0, use: [] })
+    const { search } = useParams()
+
     // const urlApi = `${import.meta.env.VITE_APP_API_URL}products`
-    const urlApi = 'http://localhost:8080/products'
+    const urlApi = !search ? 'http://localhost:8080/api/v1/products' : `http://localhost:8080/api/v1/products/?search=${search}`
     const { data, loading } = useFetchData(urlApi)
+    console.log(data)
     const { displayedProducts } = useFilterProducts(data, loading, filter)
 
     return (
