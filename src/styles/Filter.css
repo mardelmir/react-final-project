@@ -6,6 +6,7 @@
     padding-left: 15px;
     color: #213446;
     transition: color 0.7s ease;
+    align-self: left;
     /* border-color: #213446; */
 }
 

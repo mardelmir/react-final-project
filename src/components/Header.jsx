@@ -2,17 +2,21 @@ import '../styles/Header.css'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCurrentUser } from '../storage/CurrentUserContext.jsx'
+import { useTheme } from '../storage/ThemeContext.jsx'
 import DarkButton from './DarkButton.jsx'
 
-function Header({ theme }) {
+function Header() {
     const [text, setText] = useState('')
+    const { theme } = useTheme()
     const { currentUser, setCurrentUser } = useCurrentUser()
     const navigate = useNavigate()
 
     const handleSearch = async (e) => {
         e.preventDefault()
         const search = text.trim()
-        navigate(`/products/${search}`)
+        search.length === 0
+            ? navigate('/products')
+            : navigate(`/search/${search}`)
         setText('')
     }
 
@@ -42,15 +46,15 @@ function Header({ theme }) {
                 <Link to='/about'>About Us</Link>
             </nav>
 
-            <div className='search-container'>
+            <form className='search-container' onSubmit={handleSearch}>
                 <img src='/icons/glass.svg' alt='glass' className='glass' />
                 <input
                     className='searchBar'
                     type='text'
                     value={text}
                     onChange={e => setText(e.target.value)} />
-                <button onClick={handleSearch}>Search</button>
-            </div>
+                <button type='submit'>Search</button>
+            </form>
 
             <div className='user'>
                 <Link to='/cart'>
