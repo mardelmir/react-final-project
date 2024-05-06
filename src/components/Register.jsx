@@ -12,8 +12,8 @@ function Register() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // const urlPost = `${import.meta.env.VITE_APP_API_URL}register`
-        const urlPost = 'http://localhost:8080/register'
+        // const urlPost = 'http://localhost:8080/register'
+        const urlPost = `${import.meta.env.VITE_APP_API_URL}register`
         const payload = { email, password, role }
 
         try {
@@ -31,7 +31,7 @@ function Register() {
 
     return (
         <div className='form-container'>
-             <h2>Register</h2>
+            <h2>Register</h2>
             <form className='form' onSubmit={handleSubmit}>
                 <label htmlFor='email'>Email:</label>
                 <input
@@ -50,7 +50,7 @@ function Register() {
                     required />
 
                 <div className='btn-container'>
-                    <button className='btn 'type='submit'>Sign Up</button>
+                    <button className='btn ' type='submit'>Sign Up</button>
                     <Link to='/'><button className='btn'>Go back</button></Link>
                 </div>
             </form>
