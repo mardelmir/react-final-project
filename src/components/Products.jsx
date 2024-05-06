@@ -9,8 +9,8 @@ import FetchResults from './FetchResults.jsx';
 function Products() {
     const [filter, setFilter] = useState({ gender: [], size: [], minPrice: 0, maxPrice: 0, use: [] })
 
-    // const urlApi = 'http://localhost:8080/api/v1/products'
-    const urlApi = `${import.meta.env.VITE_APP_API_URL}products`
+     const urlApi = 'http://localhost:8080/api/v1/products'
+    // const urlApi = `${import.meta.env.VITE_APP_API_URL}products`
     const { data, loading } = useFetchData(urlApi);
     const { displayedProducts } = useFilterProducts(data, loading, filter);
 

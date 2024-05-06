@@ -8,13 +8,13 @@ function Search() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        // const urlApi = search === undefined
-        //     ? 'http://localhost:8080/api/v1/products'
-        //     : `http://localhost:8080/api/v1/products/?search=${search}`
-
         const urlApi = search === undefined
-            ? `${import.meta.env.VITE_APP_API_URL}products`
-            : `${import.meta.env.VITE_APP_API_URL}products/?search=${search}`
+            ? 'http://localhost:8080/api/v1/products'
+            : `http://localhost:8080/api/v1/products/?search=${search}`
+
+        // const urlApi = search === undefined
+        //     ? `${import.meta.env.VITE_APP_API_URL}products`
+        //     : `${import.meta.env.VITE_APP_API_URL}products/?search=${search}`
 
         const fetchData = async () => {
             try {

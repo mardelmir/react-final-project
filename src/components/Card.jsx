@@ -8,13 +8,13 @@ function Card() {
     const { currentUser } = useCurrentUser()
     const navigate = useNavigate()
 
-    // const urlApi = `http://localhost:8080/api/v1/products/${productId}`;
-    const urlApi = `${import.meta.env.VITE_APP_API_URL}products/${productId}`;
+    const urlApi = `http://localhost:8080/api/v1/products/${productId}`;
+    // const urlApi = `${import.meta.env.VITE_APP_API_URL}products/${productId}`;
     const { data: product, loading } = useFetchData(urlApi)
 
     const deleteProduct = async (productId) => {
-        // const urlDelete = `http://localhost:8080/admin/${productId}/delete`
-        const urlDelete = `${import.meta.env.VITE_APP_API_URL}admin/${productId}/delete`
+        const urlDelete = `http://localhost:8080/admin/${productId}/delete`
+        // const urlDelete = `${import.meta.env.VITE_APP_API_URL}admin/${productId}/delete`
         await fetch(urlDelete, { method: 'DELETE' })
         navigate('/products')
     }
