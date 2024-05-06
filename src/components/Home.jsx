@@ -83,20 +83,20 @@ function Home() {
                     </div>
                 </div>
             </section>
-            <section className="carrusel-brands-section">
+            <section className='carrusel-brands-section'>
                 <h2>OUR BRANDS</h2>
                 <div className='carrusel-brands-container'>
-                    <a href="https://www.vivobarefoot.com/eu/">
-                        <img src="/images/vivobarefoot2.png" alt="vivobarefoot"/>
+                    <a href='https://www.vivobarefoot.com/eu/'>
+                        <img src='/images/vivobarefoot2.png' alt='vivobarefoot' className='brand-img' />
                     </a>
-                    <a href="https://www.feelgrounds.com/" className='feelgrounds'>
-                        <img src="https://cdn.shopify.com/s/files/1/0473/0932/4455/files/feelgrounds-logo.svg?v=1671181627" alt="XeroShoes"/>
+                    <a href='https://www.feelgrounds.com/' className='feelgrounds'>
+                        <img src='https://cdn.shopify.com/s/files/1/0473/0932/4455/files/feelgrounds-logo.svg?v=1671181627' alt='XeroShoes' className='brand-img' />
                     </a>
-                    <a href="https://xeroshoes.com/">
-                        <img src="https://xeroshoes.com/wp-content/themes/xeroshoes/assets/images/xero-logo-2x.png" alt="XeroShoes"/>
+                    <a href='https://xeroshoes.com/'>
+                        <img src='https://xeroshoes.com/wp-content/themes/xeroshoes/assets/images/xero-logo-2x.png' alt='XeroShoes' className='brand-img' />
                     </a>
-                    <a href="https://www.vibram.com/us">
-                        <img src="/images/vibram.png" alt="vibram" />
+                    <a href='https://www.vibram.com/us'>
+                        <img src='/images/vibram.png' alt='vibram' className='brand-img' />
                     </a>
                 </div>
             </section>
