@@ -10,29 +10,27 @@
 .about-text {
     text-align: center;
     color: #213446;
-    padding: 40px;
     transition: color 0.7s ease;
 }
-.about-text h1{
+
+.about-content h1 {
     margin-left: 200px;
     transition: color 0.7s ease;
 }
-.about-text p {
+
+.about-content p {
     transition: color 0.7s ease;
     text-align: justify;
 }
 
-.about-img {
-    width: 1000px;
-    margin: auto;
+.about-text {
+    width: 100%;
 }
-.about-img img {
+
+.about-text img {
     width: 250px;
     float: left;
     margin-right: 25px;
-}
-figcaption{
-    text-align: center;
 }
 
 /*---Dark Mode---*/
