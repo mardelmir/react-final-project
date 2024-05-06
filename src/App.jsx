@@ -16,12 +16,14 @@ import About from './components/About.jsx';
 import NewProduct from './components/NewProduct.jsx';
 import UpdateProduct from './components/UpdateProduct.jsx';
 import Search from './components/Search.jsx';
+import { CartProvider } from './storage/CartContext.jsx';
 
 const App = () => {
     const { theme } = useTheme()
 
     return (
-        <CurrentUserProvider>
+        <CartProvider>
+            <CurrentUserProvider>
                 <Router>
                     <div className={`App ${theme}`}>
                         <Header />
@@ -44,7 +46,8 @@ const App = () => {
                         <Footer />
                     </div>
                 </Router>
-        </CurrentUserProvider>
+            </CurrentUserProvider>
+        </CartProvider>
     )
 };
 

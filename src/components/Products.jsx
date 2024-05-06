@@ -3,7 +3,7 @@ import { useState } from 'react';
 import useFetchData from '../hooks/useFetchData.js';
 import useFilterProducts from '../hooks/useFilterProducts.js';
 import Filter from './Filter.jsx';
-import FetchResults from './FetchResults.jsx';
+import ShowResults from './ShowResults.jsx';
 
 
 function Products() {
@@ -21,7 +21,7 @@ function Products() {
             </div>
             <div className='filter-cards-container'>
                 <Filter filter={filter} setFilter={setFilter} />
-                <FetchResults loading={loading} displayedProducts={displayedProducts} />
+                <ShowResults loading={loading} displayedProducts={displayedProducts} />
             </div>
         </>
     )
