@@ -22,7 +22,7 @@ function Header() {
 
     const handleLogout = async (e) => {
         e.preventDefault()
-         const urlPost = 'http://localhost8080/logout'
+         const urlPost = 'http://localhost:8080/api/v1/logout'
         // const urlPost = `${import.meta.env.VITE_APP_API_URL}logout`
 
         try {
@@ -41,7 +41,6 @@ function Header() {
                         <img className='logo' src={theme === 'light' ? '/images/logo.png' : '/images/logoDark.png'} alt='logo' />
                     </Link>
                 </div>
-                <Link to='/'>Home</Link>
                 <Link to='/products'>Products</Link>
                 <Link to='/about'>About Us</Link>
             </nav>

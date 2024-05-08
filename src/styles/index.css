@@ -20,7 +20,7 @@ main {
   min-height: 100vh;
   min-width: 100vw;
   padding-top: 132px;
-  transition: background-color 0.7s ease;
+  transition: background-color .6s ease;
 }
 
 h1 {
@@ -64,11 +64,4 @@ button,
 button:hover,
 .btn:hover {
   background-color: steelblue;
-}
-
-/* Dark Mode */
-
-.dark main {
-  background-color: #3f5162;
-  transition: background-color 0.7s ease;
 }

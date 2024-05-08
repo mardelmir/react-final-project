@@ -43,7 +43,6 @@
     width: 100%;
     padding: 6px;
     border: transparent;
-    /* border: .5px solid #98b4cb; */
     border-radius: 5px;
     font-size: 14px;
 }
@@ -116,7 +115,7 @@
 
 @media(prefers-color-scheme: dark) {
     .form-container h2 {
-        color: white;
+        color: #c4def3;
     }
 
     .form {

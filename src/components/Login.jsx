@@ -11,7 +11,7 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-         const urlPost = 'http://localhost:8080/login'
+         const urlPost = 'http://localhost:8080/api/v1/login'
         // const urlPost = `${import.meta.env.VITE_APP_API_URL}login`
         const payload = { email, password }
 
@@ -48,7 +48,7 @@ function Login() {
                     onChange={e => setPassword(e.target.value)}
                     required />
 
-                <div className='warning'></div>
+                {/* <div className='warning'></div> */}
                 <div className='btn-container'>
                     <button className='btn' type='submit'>Log In</button>
                     <Link to='/'><button className='btn'>Go back</button></Link>

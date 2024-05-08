@@ -15,7 +15,6 @@ input#toggle {
     cursor: pointer;
     background-color: #e0dfdf;
     box-shadow: 3px 3px 5px rgba(0,0,0,0.05) inset;
-    /* padding: 1.5px 2px 0px 2px; */
     padding: 0px 3px;
     transition: background-color 1s ease;
 }
@@ -35,18 +34,17 @@ input#toggle:checked + label .images{
 
 .images {
     margin-top: -28px;
-    transition: margin-top 0.7s ease;
+    transition: margin-top .6s ease;
 }
+
 .circle {
-    /* display: flex;
-    align-items: center; */
     height: 27px;
     width: 27px;
     background-color: white;
     border-radius: 100%;
     box-shadow: 4px 4px 6px rgba(0,0,0,0.05), 
     -4px -4px 7px rgba(0,0,0,0.05) inset;
-    transition: margin-left 0.7s ease, background-color 1s ease;
+    transition: margin-left .6s ease, background-color 1s ease;
     overflow: hidden;
 }
 

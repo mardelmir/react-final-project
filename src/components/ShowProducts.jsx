@@ -1,13 +1,16 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../storage/CartContext'
+import { useCurrentUser } from '../storage/CurrentUserContext'
 
 function ShowProducts({ loading, displayedProducts }) {
     const starRef = useRef()
+    const { currentUser } = useCurrentUser()
     const { updateCart } = useCart()
 
     const handleClick = (product) => {
         console.log(starRef.current)
+        console.log(currentUser)
         updateCart(product)
     }
 

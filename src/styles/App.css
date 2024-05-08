@@ -9,11 +9,6 @@
     margin: 0 auto;
 }
 
-.dark a {
-    color: #f8f8f8;
-    transition: color 0.7s ease;
-}
-
 .btn-container {
     display: flex;
     justify-content: center;
@@ -22,11 +17,41 @@
     margin-top: 15px;
 }
 
-/*dark mode*/
-div.dark {
-    background-color: #3f5162 ;
-    transition: background-color 0.7s ease;
+/* Dark Mode */
+.dark * {
+    color: #f8f8f8;
+    transition: color .6s ease;
 }
-div.light {
-    transition: background-color 0.7s ease;
+
+.App.dark {
+    background-color: #3f5162;
+    transition: background-color .6s ease;
+}
+
+.App.dark h1,
+.App.dark h2 {
+    color: #f8f8f8;
+}
+
+.dark .form-container h2,
+.dark .cart-container h2 {
+    color: #c4def3;
+}
+
+.App.dark h3 {
+    color: #213547;
+}
+
+.dark .div-footer,
+.dark .header {
+    background-color: #213547;
+    transition: background-color .6s ease;
+}
+
+.dark form label {
+    color: #213547;
+}
+
+.light * {
+    transition: color .6s ease, background-color .6s ease;
 }
