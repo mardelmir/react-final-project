@@ -1,10 +1,16 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { useCart } from '../storage/CartContext'
 
-function ShowResults({ loading, displayedProducts }) {
+function ShowProducts({ loading, displayedProducts }) {
+    const starRef = useRef()
+    const { updateCart } = useCart()
 
-    const fill = () => {
-        console.log('hola')
+    const handleClick = (product) => {
+        console.log(starRef.current)
+        updateCart(product)
     }
+
     return (
         <div className='products-container'>
             {loading ? <h2>Loading...</h2> : null}
@@ -17,9 +23,10 @@ function ShowResults({ loading, displayedProducts }) {
                         <p><span>Price</span>: {product.price}€</p>
                         <div className='btn-container'>
                             <Link to={`/products/${product._id}`}><button>Detail</button></Link>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="star" width="44"
+                            <svg xmlns="http://www.w3.org/2000/svg" className="star" ref={starRef} width="44"
                                 height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#213446" fill="none"
-                                strokeLinecap="round" strokeLinejoin="round" onClick={fill}>
+                                strokeLinecap="round" strokeLinejoin="round"
+                                onClick={() => handleClick(product)}>
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
                             </svg>
@@ -30,4 +37,4 @@ function ShowResults({ loading, displayedProducts }) {
     )
 }
 
-export default ShowResults
+export default ShowProducts

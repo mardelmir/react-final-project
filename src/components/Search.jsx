@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import ShowResults from './ShowResults';
+import ShowProducts from './ShowProducts.jsx';
 
 function Search() {
     const search = useParams().search
@@ -35,7 +35,7 @@ function Search() {
         <div className='h1-products'>
             <h1>Search results</h1>
         </div>
-        <ShowResults loading={loading} displayedProducts={data} />
+        <ShowProducts loading={loading} displayedProducts={data} />
     </>)
 }
 
