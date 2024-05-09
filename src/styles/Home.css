@@ -22,10 +22,6 @@
     overflow: hidden;
 }
 
-.carrusel-brands-container .feelgrounds img {
-    width: 230px;
-}
-
 /* Carrusel images */
 .image {
     width: 100%;
@@ -116,7 +112,7 @@
     font-size: 50px;
 }
 
-.carrusel-brands-section h2 {
+.brands-slider-section h2 {
     padding: 25px 25px 25px 0px;
     color: #213446;
     transition: color .6s ease;
@@ -176,30 +172,45 @@
     color: white;
 }
 
-/* Brands carrusel */
-.carrusel-brands-container {
+/* Brands slider */
+.brands-slider-container {
     display: flex;
     justify-content: space-around;
     box-sizing: border-box;
-    object-fit: contain;
     margin: 0px 15px;
+    overflow: hidden;
+    /* animation: slider 10s linear infinite; */
 }
 
-.carrusel-brands-container a:nth-child(1) {
+
+.brands-slider-container a:nth-child(1) {
     max-width: 25%;
 }
-.carrusel-brands-container a:nth-child(2) {
+
+.brands-slider-container a:nth-child(2) {
     max-width: 25%;
 }
-.carrusel-brands-container a:nth-child(3) {
+
+.brands-slider-container a:nth-child(3) {
     max-width: 15%;
 }
-.carrusel-brands-container a:nth-child(4) {
+
+.brands-slider-container a:nth-child(4) {
     max-width: 10%;
 }
 
-.brand-img{
+.brand-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+@keyframes slider {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }

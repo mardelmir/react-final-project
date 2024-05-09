@@ -83,9 +83,9 @@ function Home() {
                     </div>
                 </div>
             </section>
-            <section className='carrusel-brands-section'>
+            <section className='brands-slider-section'>
                 <h2>OUR BRANDS</h2>
-                <div className='carrusel-brands-container'>
+                <div className='brands-slider-container'>
                     <a href='https://www.vivobarefoot.com/eu/'>
                         <img src='/images/vivobarefoot2.png' alt='vivobarefoot' className='brand-img' />
                     </a>

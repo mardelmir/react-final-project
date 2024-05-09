@@ -33,13 +33,13 @@
     color: #f8f8f8;
 }
 
+.App.dark h3 {
+    color: #213547;
+}
+
 .dark .form-container h2,
 .dark .cart-container h2 {
     color: #c4def3;
-}
-
-.App.dark h3 {
-    color: #213547;
 }
 
 .dark .div-footer,
@@ -64,6 +64,40 @@
 
 .dark .filter {
     background-color: #213547;
+}
+
+/* Header */
+.dark .search-container button {
+    color: #213446;
+    background-color: #f8f8f8;
+    transition: color .6s ease, background-color .6s ease;
+}
+
+.dark .search-container:focus-within {
+    border-color: transparent;
+    outline: #f8f8f8 solid .5px;
+}
+
+.dark .cart {
+    transition: stroke .6s ease;
+    stroke: #f8f8f8;
+}
+
+.dark .cart:hover {
+    stroke: #6ba9db
+}
+
+.dark .user button {
+    color: white;
+}
+
+.dark .user button:hover {
+    color: #6ba9db;
+}
+
+/* Home */
+.dark .brands-slider-container {
+    background-color: #e0dfdf;
 }
 
 .light * {
