@@ -52,6 +52,20 @@
     color: #213547;
 }
 
+/* Filter */
+.dark .filter fieldset {
+    border-color: #f8f8f8;
+}
+
+.dark .filter * {
+    color: #f8f8f8;
+    transition: color .6s ease;
+}
+
+.dark .filter {
+    background-color: #213547;
+}
+
 .light * {
     transition: color .6s ease, background-color .6s ease;
 }

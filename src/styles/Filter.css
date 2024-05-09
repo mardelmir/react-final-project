@@ -1,42 +1,74 @@
 .filter {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 150px;
-    padding-left: 15px;
+    justify-content: center;
+    margin: 0px 10px 0px 20px;
+    height: 540px;
+    border-radius: 5px;
+}
+
+.filter * {
     color: #213446;
     transition: color .6s ease;
-    align-self: left;
-    /* border-color: #213446; */
+}
+
+.filter legend {
+    font-weight: 500;
+    padding: 0px 7px;
+    margin: 5px 0px;
 }
 
 .filter fieldset {
     display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 180px;
+    height: auto;
+    padding-top: 0px;
+    margin-bottom: 10px;
     border: .5px solid #213446;
     border-radius: 5px;
-    flex-wrap: wrap;
 }
 
 .filterField {
     display: flex;
     justify-content: space-between;
-    margin-left: 5px;
-}
-
-.filterField input {
-    width: auto !important;
+    margin-left: 3px;
 }
 
 .listSizes {
     display: flex;
     flex-direction: column;
-    height: 200px;
+    column-gap: 20%;
     flex-wrap: wrap;
-    column-gap: 20px;
+    width: 100%;
+    height: 185px;
 }
 
-fieldset.price input{
+.listSizes>.filterField {
+    width: 35%;
+}
+
+.gender .filterField input,
+.listSizes .filterField input,
+.use .filterField input {
+    display: flex;
+    width: 20px;
+    height: auto;
+    margin: 2px 0px;
+}
+
+.price input {
     width: 100%;
     padding: 5px;
-    margin: 3px 0px;
+    margin: 1px 0px;
+    border: transparent;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #eeeeee;
+}
+
+.price input:focus {
+    border-color: transparent;
+    outline: #6ba9db solid 1px;
 }
