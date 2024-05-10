@@ -97,7 +97,8 @@
 
 /* Home */
 .dark .brands-slider-container {
-    background-color: #e0dfdf;
+    /* background-color: #e0dfdf; */
+    background: linear-gradient(to right, transparent 0%, #e0dfdf 5%, #e0dfdf 95%, transparent 100%);
 }
 
 .light * {
