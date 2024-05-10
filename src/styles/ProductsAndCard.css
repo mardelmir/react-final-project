@@ -6,6 +6,7 @@
 
 .h1-products h1 {
     color: #213446;
+    padding: 20px;
     transition: color .6s ease;
 }
 
