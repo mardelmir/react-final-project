@@ -109,6 +109,11 @@
     cursor: pointer;
 }
 
+.fav {
+    fill: #66afcc;
+    stroke: #66afcc
+}
+
 fieldset {
     color: #213446;
 }
