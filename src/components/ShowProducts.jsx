@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useCart } from '../storage/CartContext'
-import { useCurrentUser } from '../storage/CurrentUserContext'
 
 function ShowProducts({ loading, displayedProducts }) {
-    const { currentUser } = useCurrentUser()
     const { cart, addToCart, removeFromCart } = useCart()
 
     const handleClick = (product) => {
