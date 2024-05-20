@@ -1,10 +1,9 @@
-export const formatPayload = (values) => {
-
-    // Create payload following backend Product model (size adaptation)
+export const formatPayload = (data) => {
     let error = null
     let payload = ''
 
-    const sizes = values.size
+    // Create payload following backend Product model (size adaptation)
+    const sizes = data.size
     const trimmedSizes = []
     for (let i in sizes) {
         if (sizes[i] !== '' && sizes[i] !== 0) trimmedSizes.push([i, sizes[i]])
@@ -12,8 +11,8 @@ export const formatPayload = (values) => {
 
     if (trimmedSizes.length === 0) { error = 'Cannot send form without sizes' }
 
-    values.size = Object.fromEntries(trimmedSizes)
-    payload = values
+    data.size = Object.fromEntries(trimmedSizes)
+    payload = data
 
     return { payload, error }
 }

@@ -14,7 +14,7 @@ function NewProduct() {
         const { payload, error } = formatPayload(data)
         if (!error) {
             // Send payload to database
-             const urlPost = `http://localhost:8080/admin`
+            const urlPost = `http://localhost:8080/admin`
             // const urlPost = `${import.meta.env.VITE_APP_API_URL}admin`
             try {
                 await fetch(urlPost, {
@@ -31,7 +31,7 @@ function NewProduct() {
     return (
         <div className='form-container'>
             <h2>Add new product</h2>
-            <form className='form' onSubmit={handleSubmit(onSubmit)}>
+            <form className='form' onSubmit={handleSubmit(onSubmit)} encType='multipart/form-data'>
                 <label htmlFor='name'>Name</label>
                 <input {...register('name')} required />
 
@@ -42,7 +42,7 @@ function NewProduct() {
                 <input type='number' step='0.01' min='0' {...register('price')} required />
 
                 <label htmlFor='img'>Image</label>
-                <input {...register('img')} placeholder='url' required />
+                <input type='file' {...register('img')} accept='image/*' />
 
                 <label>Category</label>
                 <div className='category-container'>
