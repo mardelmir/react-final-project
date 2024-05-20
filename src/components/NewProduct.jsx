@@ -5,27 +5,35 @@ import { Link, useNavigate } from 'react-router-dom'
 import { formatPayload } from '../utils/formatPayload';
 
 function NewProduct() {
-    const [error, setError] = useState(null)
+    const [file, setFile] = useState()
+    const [newError, setNewError] = useState()
     const { register, handleSubmit, } = useForm()
     const navigate = useNavigate()
     const sizesList = ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49']
 
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0]);
+    };
+
     const onSubmit = async (data) => {
-        const { payload, error } = formatPayload(data)
-        if (!error) {
-            // Send payload to database
-            const urlPost = `http://localhost:8080/admin`
-            // const urlPost = `${import.meta.env.VITE_APP_API_URL}admin`
-            try {
+        setNewError()
+        try {
+            const { payload, error } = await formatPayload(data, file)
+            if (error.length === 0) {
+                // Send payload to database
+                const urlPost = `http://localhost:8080/api/v1/admin`
+                // const urlPost = `${import.meta.env.VITE_APP_API_URL}admin`
                 await fetch(urlPost, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 })
                 navigate('/products')
-            }
-            catch (error) { console.log(error) }
-        } else { setError(error) }
+            } else { setNewError(error) }
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
 
     return (
@@ -41,8 +49,9 @@ function NewProduct() {
                 <label htmlFor='price'>Price (€)</label>
                 <input type='number' step='0.01' min='0' {...register('price')} required />
 
-                <label htmlFor='img'>Image</label>
-                <input type='file' {...register('img')} accept='image/*' />
+                <label htmlFor='img'>Image (file or url)</label>
+                <input type='file' {...register('img')} id='img' accept='image/*' onChange={handleFileChange} />
+                <input type='text' {...register('imgUrl')} placeholder='url' />
 
                 <label>Category</label>
                 <div className='category-container'>
@@ -67,8 +76,9 @@ function NewProduct() {
                         </div>
                     )}
                 </div>
-
-                <h3>{error}</h3>
+ 
+                {newError && (newError.map((err, i) => <h3 key={i}>{err}</h3>))}
+                
                 <div className='btn-container'>
                     <button className='btn' type='submit'>Create</button>
                     <button className='btn' type='reset'>Reset form</button>
