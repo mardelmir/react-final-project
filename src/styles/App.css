@@ -33,10 +33,6 @@
     color: #f8f8f8;
 }
 
-.App.dark h3 {
-    color: #213547;
-}
-
 .dark .form-container h2,
 .dark .cart-container h2 {
     color: #c4def3;
@@ -48,22 +44,13 @@
     transition: background-color .6s ease;
 }
 
+.dark input {
+    color: black;
+}
+
 .dark form label {
-    color: #213547;
-}
-
-/* Filter */
-.dark .filter fieldset {
-    border-color: #f8f8f8;
-}
-
-.dark .filter * {
-    color: #f8f8f8;
-    transition: color .6s ease;
-}
-
-.dark .filter {
-    background-color: #213547;
+    color: white;
+    /* color: #213547; */
 }
 
 /* Header */
@@ -103,4 +90,28 @@
 
 .light * {
     transition: color .6s ease, background-color .6s ease;
+}
+
+/* Filter */
+.dark .filter fieldset {
+    border-color: #f8f8f8;
+}
+
+.dark .filter * {
+    color: #f8f8f8;
+    transition: color .6s ease;
+}
+
+.dark .filter {
+    background-color: #213547;
+}
+
+/* Card */
+.dark .product,
+.dark .card {
+    background-color: #8197ac;
+}
+
+.dark .product svg, .dark .card svg {
+    stroke: white
 }
