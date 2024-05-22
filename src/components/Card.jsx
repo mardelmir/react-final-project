@@ -28,14 +28,14 @@ function Card() {
                         <img src={product.img} alt={product.name} />
                         <div className='detail'>
                             <h2>{product.name}</h2>
-                            <p><span>Description</span>: {product.description}</p>
-                            <p><span>Gender</span>: {product.category.gender}</p>
-                            <p><span>Use</span>: {product.category.use}</p>
-                            {/* <p><span>Available sizes</span>:</p>
+                            <p>{product.description}</p>
+                            <p><span>Gender:</span> {product.category.gender}</p>
+                            <p><span>Use:</span> {product.category.use}</p>
+                            {/* <p><span>Available sizes:</span></p>
                             <ul>
                                 {console.log(product.size)}
                             </ul> */}
-                            <p><span>Price</span>: {product.price}€</p>
+                            <p><span>Price:</span> {product.price} €</p>
                             <svg xmlns="http://www.w3.org/2000/svg" className="star" width="44"
                                 height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#213446" fill="none"
                                 strokeLinecap="round">

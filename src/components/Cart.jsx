@@ -25,7 +25,7 @@ function Cart() {
                         <li key={product._id} className='cart-product'>
                             <h2>{product.name}</h2>
                             <img src={product.img} />
-                            <p><span>Price</span>: {product.price}€</p>
+                            <p><span>Price:</span> {product.price}€</p>
                             <div className='btn-container'>
                                 <Link to={`/products/${product._id}`}><button className='btn'>Detail</button></Link>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="star fav" width="44"

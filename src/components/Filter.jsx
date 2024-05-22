@@ -76,19 +76,19 @@ function Filter({ filter, setFilter }) {
                 </div>
             </fieldset>
             <fieldset className="filter price">
-                <legend>Price</legend>
+                <legend>Price (€)</legend>
                 <input
                     type="number"
                     id="minPrice"
                     name="minPrice"
-                    placeholder="$ Min."
+                    placeholder="Min"
                     onChange={onChangeHandlerPrice}
                 />
                 <input
                     type="number"
                     id="maxPrice"
                     name="maxPrice"
-                    placeholder="$ Max."
+                    placeholder="Max"
                     onChange={onChangeHandlerPrice}
                 />
             </fieldset>

@@ -23,7 +23,7 @@ function ShowProducts({ loading, displayedProducts }) {
                         <div key={product._id} className='product'>
                             <h3>{product.name}</h3>
                             <img src={product.img} alt={product.name} />
-                            <p><span>Price</span>: {product.price}€</p>
+                            <p>Price: <span>{product.price} €</span></p>
                             <div className='btn-container'>
                                 <Link to={`/products/${product._id}`}><button className='btn'>Detail</button></Link>
                                 <svg xmlns="http://www.w3.org/2000/svg" className={starClass} width="44"
