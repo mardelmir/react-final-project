@@ -23,8 +23,8 @@ function Card() {
         <>
             {loading
                 ? <h3>Loading...</h3>
-                : <div className='card-container'>
-                    <div key={product._id} className='card'>
+                : <div className='Product-container'>
+                    <div key={product._id} className='Product'>
                         <img src={product.img} alt={product.name} />
                         <div className='detail'>
                             <h2>{product.name}</h2>
