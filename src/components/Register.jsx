@@ -51,7 +51,7 @@ function Register() {
 
                 <div className='btn-container'>
                     <button className='btn ' type='submit'>Sign Up</button>
-                    <Link to='/'><button className='btn'>Go back</button></Link>
+                    <Link to='/'><button className='btn-2'>Go back</button></Link>
                 </div>
             </form>
         </div>

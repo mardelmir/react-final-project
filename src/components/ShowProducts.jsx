@@ -25,7 +25,7 @@ function ShowProducts({ loading, displayedProducts }) {
                             <img src={product.img} alt={product.name} />
                             <p><span>Price</span>: {product.price}€</p>
                             <div className='btn-container'>
-                                <Link to={`/products/${product._id}`}><button>Detail</button></Link>
+                                <Link to={`/products/${product._id}`}><button className='btn'>Detail</button></Link>
                                 <svg xmlns="http://www.w3.org/2000/svg" className={starClass} width="44"
                                     height="44" viewBox="0 0 24 24" strokeWidth="1.5" fill="none" stroke="#213446" strokeLinecap="round" strokeLinejoin="round"
                                     onClick={() => handleClick(product)}>

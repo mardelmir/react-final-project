@@ -81,8 +81,8 @@ function NewProduct() {
                 
                 <div className='btn-container'>
                     <button className='btn' type='submit'>Create</button>
-                    <button className='btn' type='reset'>Reset form</button>
-                    <Link to='/products'><button className='btn'>Cancel</button></Link>
+                    <button className='btn-2' type='reset'>Reset form</button>
+                    <Link to='/products'><button>Cancel</button></Link>
                 </div>
             </form >
         </div >

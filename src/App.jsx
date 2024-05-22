@@ -1,8 +1,8 @@
 import './styles/App.css'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 import { CartProvider } from './storage/CartContext.jsx';
-import { CurrentUserProvider } from './storage/CurrentUserContext.jsx';
+import { useCurrentUser } from './storage/CurrentUserContext.jsx';
 import { useTheme } from './storage/ThemeContext.jsx';
 
 import Header from './components/Header.jsx';
@@ -20,34 +20,40 @@ import Search from './components/Search.jsx';
 
 const App = () => {
     const { theme } = useTheme()
+    const { currentUser } = useCurrentUser()
 
     return (
-        <CurrentUserProvider>
-            <CartProvider>
-                <Router>
-                    <div className={`App ${theme}`}>
-                        <Header />
-                        <main>
-                            <Routes>
-                                <Route path='/' element={<Home />} />
-                                <Route path='/about' element={<About />} />
-                                <Route path='/login' element={<Login />} />
-                                <Route path='/register' element={<Register />} />
-                                <Route path='/products' element={<Products />} />
-                                <Route path='/products/:id' element={<Card />} />
-                                <Route path='/search/:search' element={<Search />} />
-                                <Route path='/cart' element={<Cart />} />
+        <CartProvider>
+            <Router>
+                <div className={`App ${theme}`}>
+                    <Header />
+                    <main>
+                        <Routes>
+                            <Route path='/' element={<Home />} />
+                            <Route path='/about' element={<About />} />
+                            <Route path='/login' element={<Login />} />
+                            <Route path='/register' element={<Register />} />
+                            <Route path='/products' element={<Products />} />
+                            <Route path='/products/:id' element={<Card />} />
+                            <Route path='/search/:search' element={<Search />} />
+                            <Route path='/cart' element={<Cart />} />
 
-                                {/* Rutas protegidas */}
-                                <Route path='/products/:id/update' element={<UpdateProduct />} />
-                                <Route path='/new' element={<NewProduct />} />
-                            </Routes>
-                        </main>
-                        <Footer />
-                    </div>
-                </Router>
-            </CartProvider>
-        </CurrentUserProvider>
+                            <Route path='/new' element={
+                                currentUser && currentUser.role === 'admin'
+                                    ? <NewProduct />
+                                    : <Login />} />
+                            <Route path='/products/:id/update' element={
+                                currentUser && currentUser.role === 'admin'
+                                    ? <UpdateProduct />
+                                    : <Login />} />
+
+                            <Route path='*' element={<Navigate to='/' replace />} />
+                        </Routes>
+                    </main>
+                    <Footer />
+                </div>
+            </Router>
+        </CartProvider>
     )
 };
 

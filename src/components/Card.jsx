@@ -43,10 +43,10 @@ function Card() {
                                 <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
                             </svg>
                             <div className='btn-container'>
-                                <Link to='/products'><button>Go back</button></Link>
+                                <Link to='/products'><button className='btn'>Go back</button></Link>
                                 {currentUser && currentUser.role === 'admin' && (
                                     <>
-                                        <Link to={`/products/${product._id}/update`}><button>Update</button></Link>
+                                        <Link to={`/products/${product._id}/update`}><button className='btn-2'>Update</button></Link>
                                         <button onClick={() => deleteProduct(product._id)}>Delete</button>
                                     </>
                                 )}

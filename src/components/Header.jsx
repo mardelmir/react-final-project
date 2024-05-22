@@ -53,7 +53,7 @@ function Header() {
                     type='text'
                     value={text}
                     onChange={e => setText(e.target.value)} />
-                <button type='submit'>Search</button>
+                <button type='submit' className='btn'>Search</button>
             </form>
 
             <div className='user'>

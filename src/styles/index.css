@@ -9,7 +9,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   min-width: 100vw;
   min-height: 100vh;
@@ -47,21 +48,39 @@ section {
   margin: 30px;
 }
 
-button,
-.btn {
+button {
   border-radius: 6px;
-  border: .5px solid transparent;
+  border: .9px solid transparent;
   padding: 7px 15px;
   font-size: 14px;
   font-weight: 500;
   font-family: inherit;
+  color: #213446;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color .25s, border-color .25s;
+}
+
+.btn {
   color: white;
   background-color: #213446;
-  cursor: pointer;
   transition: background-color 0.25s;
 }
 
-button:hover,
+.btn-2{
+  border-color: #213446;
+}
+
+
 .btn:hover {
+  color:white;
   background-color: steelblue;
+  transition: background-color .25s ease;
+}
+
+button:hover,
+.btn-2:hover{
+  color: steelblue;
+  border-color: steelblue;
+  transition: color .25s, border-color .25s;
 }

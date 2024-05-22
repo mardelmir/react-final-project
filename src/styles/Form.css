@@ -118,8 +118,23 @@
         background-color: #213446;
         color: white;
     }
-    
+
+    .form button {
+        color: white;
+    }
+
     .form .btn {
-        background-color: #92a0ac;
+        background-color: #7b8996;
+    }
+
+    .form .btn-2 {
+        color: white;
+        border-color: white;
+    }
+
+    .form .btn-2:hover,
+    .form button:hover {
+        color: #b9c9d7;
+        border-color: #b9c9d7;
     }
 }
